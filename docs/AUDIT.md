@@ -341,6 +341,6 @@ El antes/después completo, campo por campo, está en [`docs/COPY.md`](./COPY.md
 - **C10/C11:** fases del video de Ryu reescritas; audio "normalizado a −14 LUFS (el estándar de YouTube)".
 - **A8:** cada fotograma de la galería tiene texto alternativo descriptivo (campo `stillAlts`), escrito mirando la imagen.
 
-Hallazgo para el autor: el fotograma 2 de "Hitos de Francisco José de Caldas" muestra el texto **"MIEMRBO DE LA EXPEDICIÓN BOTÁNICA"** (errata dentro del video; se corrige en el proyecto de edición, no en el sitio).
+Hallazgo: el video de "Hitos de Francisco José de Caldas" tenía la errata **"MIEMRBO DE LA EXPEDICIÓN BOTÁNICA"**. *Resuelto:* el autor publicó una versión corregida; el sitio enlaza el nuevo video y usa el fotograma corregido. También se actualizó el link del reel (versión sin el error) y se reescribió la frase del hero.
 
 Verificación: lint y build OK, 51/51 pruebas e2e (axe sin violaciones en ambos temas).
