@@ -9,6 +9,7 @@ const routes = [
   '/proyectos/cortinilla-25-anos-multimedia',
   '/proyectos/fallas-de-mercado',
   '/proyectos/ryu-gamedev',
+  '/esta-pagina-no-existe', // 404
 ];
 const widths = [320, 768, 1280];
 const schemes = ['dark', 'light'];

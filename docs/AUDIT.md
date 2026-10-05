@@ -367,7 +367,7 @@ Verificación: lint y build OK, 51/51 pruebas e2e (axe sin violaciones en ambos 
 | Enlaces externos | Todos con `target="_blank"` llevan `rel="noopener noreferrer"` (prueba) |
 | Consola | Sin errores en home ni en páginas de proyecto (prueba) |
 
-**Pruebas nuevas (8):** metadatos y canonical, Twitter por proyecto, JSON-LD válido, robots/sitemap/manifest/íconos, enlaces internos 200, `rel` externo, 404. Total: 59 pruebas e2e.
+**Pruebas nuevas (7):** metadatos y canonical, Twitter por proyecto, JSON-LD válido, robots/sitemap/manifest/íconos, enlaces internos 200, `rel` externo, 404. Total: 58 pruebas e2e.
 
 **Lighthouse móvil:** home 97–99 / 100 / 100 / 100; proyecto 97 / 100 / 100 / 100; CLS 0.
 
@@ -376,3 +376,71 @@ Verificación: lint y build OK, 51/51 pruebas e2e (axe sin violaciones en ambos 
 - *Repos enlazados:* el sitio no enlaza ningún repositorio, así que no hay README ajeno que revisar.
 - *Enlaces de YouTube/LinkedIn:* no verificables desde el entorno de desarrollo (red restringida); confirmar a mano en producción.
 - *Datos personales públicos:* el CV incluye tu teléfono y correo (intencional para reclutadores); el sitio muestra además tu WhatsApp. Las referencias de terceros se retiraron.
+
+---
+
+## 12. Fase 6 — Verificación final y resumen
+
+Método idéntico al de la Fase 0: `next build` + `next start`, Lighthouse CLI (5 corridas por página y dispositivo, se reporta la mediana), axe-core con etiquetas WCAG 2.0–2.2 A/AA + best-practice. Medido en local; los valores en producción pueden variar.
+
+### Puntajes: antes (Fase 0) → después
+
+| Página / dispositivo | Perf | A11y | Best Pr. | SEO | LCP | CLS | TBT |
+|---|---|---|---|---|---|---|---|
+| Home · móvil | 95 → **97** (mín. 95) | 100 → 100 | 100 → 100 | 100 → 100 | 2.9 s → **2.4 s** | 0 → 0 | 110 → 119 ms |
+| Home · escritorio | 100 → 100 | 100 → 100 | 100 → 100 | 100 → 100 | 0.6 s → 0.6 s | 0 → 0 | 0 → 0 ms |
+| Proyecto · móvil | 100 → **96** (mín. 96) | 100 → 100 | 100 → 100 | 100 → 100 | 1.9 s → 2.5 s | 0 → 0 | 40 → 121 ms |
+| Proyecto · escritorio | 100 → 100 | 100 → 100 | 100 → 100 | 100 → 100 | 0.5 s → 0.6 s | 0 → 0 | 0 → 0 ms |
+
+- Meta de la Fase 2 (≥ 95 en las cuatro categorías en móvil): **cumplida** en ambas páginas.
+- **Matiz honesto:** la página de proyecto bajó de 100 a 96 en móvil (LCP 1.9 → 2.5 s). Es el costo de una página mucho más rica (ficha técnica, video, galería, siguiente proyecto, JSON-LD) y de usar una fuente de títulos propia. Sigue por encima de la meta y con CLS 0.
+- **INP** no es medible en laboratorio; TBT (proxy) se mantiene bajo (≤ 121 ms en móvil simulado). Las métricas de campo (CrUX) solo existirán con tráfico real.
+- Peso transferido del home: 265 → 263 KiB (móvil) a pesar de la página mucho más rica; imágenes fuente en el repo: 7.6 → 2.8 MB.
+
+### Accesibilidad
+
+| | Fase 0 | Fase 6 |
+|---|---|---|
+| axe (violaciones) | 0 en 8 rutas × 3 anchos, solo tema oscuro | **0 en 8 rutas (incl. 404) × 3 anchos × 2 temas** = 48 pruebas |
+| Skip link, `Esc` en menú, foco al reproductor, galería con teclado | no | sí (probado) |
+| Paradas de Tab por tarjeta | 2 | 1 |
+| Objetivos táctiles < 24 px | 5 | 0 |
+| Contraste | AA | AA en ambos temas (acento sobre fondo 4.7–6.2:1) |
+| `prefers-reduced-motion` / `prefers-color-scheme` | movimiento sí / tema no | ambos |
+| Pruebas automatizadas en el repo | 0 | **64** (`npm run test:e2e`) |
+
+### Checklist de QA responsive (automatizada + revisión visual de capturas)
+
+Rutas: `/`, 3 proyectos representativos y la 404 · Anchos: 320, 768, 1280 px · Temas: oscuro y claro (30 combinaciones).
+
+- [x] Sin scroll horizontal en ninguna combinación
+- [x] Sin elementos fuera del viewport
+- [x] Ninguna imagen rota
+- [x] Todos los enlaces y botones ≥ 24 px (los principales ≥ 44 px)
+- [x] Texto mínimo de 12 px
+- [x] Sin errores de consola
+- [x] Mosaico de proyectos: 1 columna (320), 2 (768; el destacado a todo el ancho), 3 con destacado 2×2 (≥ 1024)
+- [x] Encabezado fijo, menú móvil con `Esc`/clic fuera, CTA de CV visible
+- [x] Hero legible y con CTAs en la primera pantalla en 320 px
+- Corregido durante la verificación: ancho mínimo del enlace "CV" del footer; la última tarjeta (Ryu) ya no se estira a todo el ancho en tablet.
+
+### Resumen de cambios (por fase)
+
+1. **Accesibilidad:** skip link, menú y tarjetas operables con teclado, objetivos táctiles, foco gestionado, `color-scheme`, tests e2e con axe.
+2. **Performance:** animaciones fuera del camino del LCP, CSS en línea, `sizes` reales, imágenes fuente −63 %.
+3. **UI/UX:** dirección "Sala de edición" (tokens claro/oscuro, escala tipográfica, acento REC), hero con propuesta + CV/contacto/LinkedIn, franja de resultados reales, mosaico con proyecto destacado y orden manual, case studies, galería ampliable, CV descargable.
+4. **Redacción:** estado académico coherente, resultados reales por proyecto, "Sobre mí" concreto, ortografía, afirmaciones técnicas corregidas, texto alternativo de la galería (`docs/COPY.md`).
+5. **SEO y detalles:** metadatos y canonical por página, Open Graph/Twitter propios, JSON-LD, manifest e íconos, imagen para compartir, CV accesible, README, 404, `rel` externos.
+6. **Verificación:** este informe.
+
+### Pendientes que dependen del autor
+
+- [ ] **Hacer clic en los enlaces externos en producción** (canal y perfil de LinkedIn, los 7 videos de YouTube, en especial el reel nuevo y Hitos): no son verificables desde el entorno de desarrollo.
+- [ ] **Portada del reel:** si el reel nuevo tiene otra portada, reemplazar `public/reel/poster.jpg`.
+- [ ] **Confirmar el despliegue en Vercel:** *Root Directory* = `portafolio-audiovisual` y que `https://juandavidfiquevelasco.vercel.app` sea la URL de producción.
+- [ ] **Subir `og:image` a una red social para validar la vista previa** (LinkedIn Post Inspector / WhatsApp) tras publicar; las redes cachean la imagen.
+- [ ] **Analítica (opcional):** Vercel Web Analytics requiere activarla y añadir `@vercel/analytics`.
+- [ ] **Actualizar el CV original** (.docx) con "Estudiante de último semestre…" y quitar de la web antigua cualquier copia con referencias.
+- [ ] **Registrar tu sitio en Google Search Console** y enviar el `sitemap.xml` para acelerar la indexación.
+- [ ] **Revisar `npm audit`:** una vulnerabilidad *high* en `braces` (solo desarrollo, vía `eslint-config-next`); no afecta al sitio publicado.
+- [ ] **Mantener los datos al día:** `content/site.json` (disponibilidad, estadísticas) y el campo `result` de cada proyecto si cambian.
