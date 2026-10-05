@@ -6,7 +6,7 @@ import Image from 'next/image';
 // Galería de fotogramas con ampliación.
 // Usa <dialog> nativo: atrapa el foco, se cierra con Esc y devuelve el foco al botón
 // que lo abrió, sin librerías. Las flechas ← → cambian de imagen.
-export default function Gallery({ stills, title }) {
+export default function Gallery({ stills, title, alts = [] }) {
   const dialogRef = useRef(null);
   const closeRef = useRef(null);
   const [current, setCurrent] = useState(null); // índice abierto, o null
@@ -41,7 +41,8 @@ export default function Gallery({ stills, title }) {
     if (event.target === dialogRef.current) close();
   };
 
-  const alt = index => `Fotograma ${index + 1} de ${stills.length} de ${title}`;
+  // Texto alternativo: la descripción del JSON ("stillAlts") si existe; si no, uno genérico.
+  const alt = index => alts[index] ?? `Fotograma ${index + 1} de ${stills.length} de ${title}`;
 
   return (
     <>

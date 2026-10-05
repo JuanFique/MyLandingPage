@@ -323,3 +323,24 @@ Decisiones del autor: opción A; orden de proyectos 1. Introducción a la Cáted
 | CLS | 0 | 0 |
 | axe (7 rutas × 3 anchos × 2 temas) | 21 pruebas, 0 violaciones | 42 pruebas, 0 violaciones |
 | Pruebas e2e | 27 | 51 |
+
+---
+
+## 10. Registro de la Fase 4 (Redacción y contenido)
+
+El antes/después completo, campo por campo, está en [`docs/COPY.md`](./COPY.md).
+
+- **C1:** sin contradicción de titulación: todo el sitio dice "estudiante de último/décimo semestre".
+- **C2:** cada proyecto tiene resultado real (nota 5.0, primer lugar, 3.8k vistas, entrega en < 1 semana).
+- **C3/C4:** párrafo del hero con clientes reales; "Sobre mí" reescrito en 3 párrafos concretos (qué busco, qué hago bien, qué he hecho), sin repeticiones ni clichés.
+- **C5:** "guion" sin tilde; "postproducción" unificado.
+- **C6:** anglicismos innecesarios reemplazados (storytelling, research, brief, gags, pacing); se conservan términos técnicos del oficio (keyframes, rig, timing, easing, motion design).
+- **C7:** Bolsa ninja: "keyframes sobre rig" (no frame-by-frame), "primer proyecto de animación de personaje" (no "largo formato"); Hitos: sin "animación estática".
+- **C8:** el título de Ryu pasa a "Edición de video para @ryugamedev"; el título original del video se cita en el resumen.
+- **C9:** "Mi rol" acotado y ordenado por importancia.
+- **C10/C11:** fases del video de Ryu reescritas; audio "normalizado a −14 LUFS (el estándar de YouTube)".
+- **A8:** cada fotograma de la galería tiene texto alternativo descriptivo (campo `stillAlts`), escrito mirando la imagen.
+
+Hallazgo para el autor: el fotograma 2 de "Hitos de Francisco José de Caldas" muestra el texto **"MIEMRBO DE LA EXPEDICIÓN BOTÁNICA"** (errata dentro del video; se corrige en el proyecto de edición, no en el sitio).
+
+Verificación: lint y build OK, 51/51 pruebas e2e (axe sin violaciones en ambos temas).

@@ -3,11 +3,11 @@
   "category": "Motion design educativo",
   "year": 2026,
   "context": "Cliente: Instituto de Estudios e Investigaciones Educativas (IEIE) — Universidad Distrital Francisco José de Caldas",
-  "description": "Video de motion design que narra hitos biográficos de Caldas usando capas 3D, efectos de profundidad y nodos de composición, sin animación de personajes.",
-  "summary": "Video de animación estática que narra hitos biográficos de Francisco José de Caldas mediante imágenes en movimiento, efectos de profundidad y motion design. Demuestra iteración sobre un formato previo, usando capas 3D y nodos de composición para crear dinamismo narrativo sin animación de personajes.",
-  "role": "Me encargué de la organización y estructura de la narración, diseño de presentación visual, motion design en capas 3D, composición de efectos en nodos de DaVinci Resolve, diseño de títulos y palabras clave, efectos de sonido, sincronización narrativa, iteración y refinamiento de movimientos.",
-  "problem": "Necesidad de reformatear un video anterior sobre Caldas (información general) en una versión con enfoque narrativo en hitos biográficos específicos, con recursos limitados: solo el guión y la narración.",
-  "solution": "Principios de motion design aplicados a imágenes estáticas, donde cada imagen recibió tratamiento de profundidad mediante capas 3D, sombras y movimiento de cámara simulado. Se priorizó el timing de movimientos y efectos sincronizados con la narración oral y los énfasis históricos. Se usó el sistema de nodos de DaVinci Resolve para crear efectos complejos y se ajustaron las curvas de movimiento para que cada asset contribuya al pacing general sin competir con la narrativa.",
+  "description": "Video educativo que convierte imágenes fijas en escenas con profundidad, con capas 3D y nodos en DaVinci Resolve. Entregado en menos de una semana.",
+  "summary": "Video sobre los hitos biográficos de Francisco José de Caldas hecho a partir de imágenes fijas. Con capas 3D, sombras y una cámara simulada en DaVinci Resolve, cada imagen gana profundidad y movimiento sin necesidad de animar personajes.",
+  "role": "Estructura de la narración, diseño visual, motion design con capas 3D, efectos con nodos en DaVinci Resolve, títulos, efectos de sonido y sincronización con la narración.",
+  "problem": "Había que rehacer un video anterior sobre Caldas, de corte general, como una pieza centrada en hitos concretos de su vida. Los únicos insumos eran el guion y la narración, y el plazo era de menos de una semana.",
+  "solution": "Apliqué motion design a imágenes fijas: cada una ganó profundidad con capas 3D, sombras y un movimiento de cámara simulado. Sincronicé los movimientos con los énfasis de la narración y usé los nodos de DaVinci Resolve para los efectos compuestos. Ajusté las curvas de animación para que ningún elemento compitiera con la voz.",
   "tools": [
     "DaVinci Resolve",
     "Adobe Podcast (Enhance Speech)"
@@ -17,5 +17,11 @@
   "order": 3,
   "highlight": "Entrega en < 1 semana",
   "result": "Entregado en menos de una semana, con tiempo para revisión y corrección antes de publicarse en la plataforma de cursos del IEIE.",
-  "client": "IEIE · Universidad Distrital"
+  "client": "IEIE · Universidad Distrital",
+  "stillAlts": [
+    "Título «Francisco José de Caldas» junto a una ilustración de Caldas sentado en una silla",
+    "Ilustración de Caldas estrechando la mano de otro científico en un bosque, con el texto sobre la Expedición Botánica",
+    "Ilustración de Caldas junto a una olla al fuego en una cueva, con íconos que destacan el experimento",
+    "Retrato de Caldas entre soldados, con un recuadro de Pablo Morillo"
+  ]
 }

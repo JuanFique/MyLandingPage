@@ -3,11 +3,11 @@
   "category": "Motion design educativo",
   "year": 2026,
   "context": "Cliente: Instituto de Estudios e Investigaciones Educativas (IEIE) — Universidad Distrital Francisco José de Caldas",
-  "description": "Introducción audiovisual que contextualiza el origen y propósito de la Cátedra con iconografía animada, narración en IA y un diseño pensado para estudiantes sin conocimiento previo.",
-  "summary": "Introducción audiovisual que contextualiza el origen y propósito de la Cátedra mediante sistemas visuales accesibles: iconografía animada, narración en IA y diseño pensado para estudiantes sin conocimiento previo.",
-  "role": "Me encargué de la composición, edición, motion design y supervisión de la generación de narración en IA.",
-  "problem": "El IEIE necesitaba una pieza de onboarding que explicara el contexto histórico y educativo de la Cátedra a estudiantes que ingresaban sin referencia previa, en un formato audiovisual que combinara claridad narrativa con accesibilidad de contenido.",
-  "solution": "Construcción de un sistema de iconografía animada que acompañara la narrativa histórica, narración generada con IA siguiendo guiones con criterios de claridad y accesibilidad auditiva (duración, entonación, velocidad), y una composición visual que priorizaba contraste, legibilidad y ritmo coherente con el tono académico de la institución.",
+  "description": "Video de bienvenida para estudiantes que llegan sin contexto a la Cátedra: iconografía animada y narración con IA, entregado en menos de una semana.",
+  "summary": "Video de bienvenida al curso virtual de la Cátedra Francisco José de Caldas. Explica el origen y el propósito de la Cátedra a estudiantes sin conocimiento previo, con iconografía animada y narración generada con IA.",
+  "role": "Composición, edición y motion design en After Effects y Premiere Pro; supervisión de la narración generada con IA.",
+  "problem": "El IEIE necesitaba un video de bienvenida que explicara el contexto histórico y educativo de la Cátedra a estudiantes que llegan sin referencias previas. El plazo era de menos de una semana para entregar, revisar, corregir y publicar en la plataforma del curso.",
+  "solution": "Diseñé un sistema de íconos animados que acompaña cada idea de la narración. Supervisé la voz generada con IA para que la duración, la entonación y la velocidad fueran fáciles de seguir. La composición prioriza el contraste, la legibilidad y un ritmo acorde al tono académico de la institución.",
   "tools": [
     "Adobe After Effects",
     "Adobe Premiere Pro",
@@ -20,5 +20,11 @@
   "order": 1,
   "highlight": "Entrega en < 1 semana",
   "result": "Entregado en menos de una semana, con tiempo para revisión y corrección antes de publicarse en la plataforma de cursos del IEIE.",
-  "client": "IEIE · Universidad Distrital"
+  "client": "IEIE · Universidad Distrital",
+  "stillAlts": [
+    "Portada del curso: «Cátedra Francisco José de Caldas — Presentación del curso» sobre una vista aérea de la Universidad Distrital, con los logos de Open edX y del IEIE",
+    "Título «Evolución» con un ícono del hombre de Vitruvio sobre una ilustración medieval de un maestro y sus alumnos",
+    "Título «Autonomía» con íconos animados de sus cuatro tipos: académica, administrativa, financiera y presupuestal",
+    "Lista «Implica asumir: su misión, sus principios, objetivos, funciones universitarias» junto a un retrato en blanco y negro de Caldas"
+  ]
 }

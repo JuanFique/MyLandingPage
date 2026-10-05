@@ -3,27 +3,27 @@
   "category": "Motion design",
   "year": 2026,
   "context": "Cliente: Universidad Militar Nueva Granada — Programa de Ingeniería en Multimedia",
-  "description": "Cortinilla de motion design para los 25 años del programa de Ingeniería en Multimedia, basada en el movimiento abstracto de Walter Ruttmann.",
-  "summary": "Cortinilla de motion design que celebra los 25 años del programa de Ingeniería en Multimedia. Aplica principios de movimiento abstracto, inspirados en Walter Ruttmann, para crear una narrativa visual que sincroniza geometría, tipografía y ritmo en una secuencia cohesionada.",
-  "role": "Concepto visual, research sobre Walter Ruttmann, storyboarding, diseño de composición y movimiento, control de ritmo temporal, sincronización de elementos, dirección de animación y refinamiento final.",
-  "problem": "Crear una cortinilla de celebración para los 25 años del programa. Debía reflejar la identidad «MULTI», usar principios de motion design abstracto, mantener coherencia narrativa mediante ritmo y sincronización, y resultar memorable e institucional sin ser genérica.",
-  "solution": "Estrategia visual basada en el cine abstracto de Walter Ruttmann, cineasta experimental: la narrativa se construye con geometría y movimiento abstracto en lugar de figuras literales. La tipografía funciona como elemento cinético y el número 25 es protagonista visual, con peso y momentum. El ritmo y la sincronización dan coherencia temporal a cada fase del movimiento. El trabajo se organizó en cinco fases:",
+  "description": "Cortinilla de motion design para los 25 años de Ingeniería en Multimedia, inspirada en el cine abstracto de Walter Ruttmann.",
+  "summary": "Cortinilla para los 25 años del programa de Ingeniería en Multimedia de la UMNG. Toma los principios del cine abstracto de Walter Ruttmann y construye la celebración con geometría, tipografía y ritmo, sin imágenes literales.",
+  "role": "Investigación, concepto, storyboard, diseño de composición y movimiento, animación en After Effects, ajuste del timing y refinamiento final.",
+  "problem": "La cortinilla debía celebrar los 25 años del programa, reflejar la identidad «MULTI» con un lenguaje de motion design abstracto y resultar memorable e institucional sin caer en lo genérico.",
+  "solution": "Me basé en el cine abstracto de Walter Ruttmann: la historia la cuentan la geometría y el movimiento, no figuras literales. La tipografía funciona como un elemento en movimiento y el número 25 es el protagonista visual. Organicé el trabajo en cinco fases:",
   "steps": [
     {
       "title": "Investigación",
-      "text": "research sobre Walter Ruttmann e identificación de los principios transferibles a este proyecto."
+      "text": "estudio de la obra de Ruttmann y de los principios aplicables al proyecto."
     },
     {
       "title": "Concepto",
-      "text": "definición de cómo representar «25 años» y «MULTI» sin literalismo; decisión de usar geometría y tipografía como elementos cinéticos."
+      "text": "cómo representar «25 años» y «MULTI» sin literalidad, con geometría y tipografía en movimiento."
     },
     {
       "title": "Storyboard",
-      "text": "creación de la secuencia visual y definición del timing de cada elemento."
+      "text": "secuencia visual y timing de cada elemento."
     },
     {
       "title": "Animación",
-      "text": "construcción de los movimientos con easing y momentum, sincronizando los elementos para lograr un flujo cohesionado."
+      "text": "movimientos con easing e inercia, sincronizados para que fluyan como un todo."
     },
     {
       "title": "Refinamiento",
@@ -34,12 +34,18 @@
     "Adobe After Effects"
   ],
   "credits": [
-    "Concepto basado en los principios de Walter Ruttmann"
+    "Concepto inspirado en el cine abstracto de Walter Ruttmann"
   ],
   "featured": true,
   "youtube": "https://youtu.be/gXH4wLWVsaw",
   "order": 4,
   "highlight": "Nota 5.0",
   "result": "Calificación de 5.0 sobre 5.0.",
-  "client": "Ingeniería en Multimedia · UMNG"
+  "client": "Ingeniería en Multimedia · UMNG",
+  "stillAlts": [
+    "Una «M» blanca de gran tamaño con sombra sobre fondo celeste",
+    "Storyboard a mano con seis escenas y flechas de movimiento",
+    "Túnel de texto en espiral con las palabras «Diseño», «Narrativa», «Interactividad», «Audio» y «Motion»",
+    "Cierre con el texto «Ingeniería en Multimedia 25 años» en rojo y celeste"
+  ]
 }

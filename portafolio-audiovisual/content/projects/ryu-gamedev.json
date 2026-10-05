@@ -1,33 +1,33 @@
 {
-  "title": "NO necesitas programar BIEN para hacer BUENOS JUEGOS",
-  "category": "Edición y postproducción narrativa",
+  "title": "Edición de video para @ryugamedev",
+  "category": "Edición y postproducción",
   "year": 2025,
   "context": "Cliente: @ryugamedev",
-  "description": "Edición de video de 15 minutos que sincroniza narración sobre videojuegos con material heterogéneo, corrección de audio y microcomedia visual.",
-  "summary": "Edición de video de 15 minutos que sincroniza narración sobre videojuegos con material heterogéneo de múltiples títulos. Combina búsqueda estratégica de material, corrección de audio, sincronización narrativa y microcomedia visual para mantener coherencia narrativa a lo largo de la pieza.",
-  "role": "Corrección y revisión de guión, búsqueda y selección de material, edición de video, sincronización narrativa, diseño de títulos y gráficos textuales, selección y sincronización de música, corrección de audio, normalización de LUFS, sincronización de efectos de sonido y posproducción general.",
-  "problem": "El cliente necesitaba edición profesional para un video de 15 minutos donde discute temáticas de videojuegos. El guión ya estaba escrito, con puntos específicos donde debía haber material visual, pero el material existía en múltiples juegos no relacionados entre sí, y había que hacerlos parecer sincronizados narrativamente. El objetivo era mantener la voz y visión del creador mientras se elevaba la producción visual y el audio.",
-  "solution": "El trabajo se organizó en cinco fases:",
+  "description": "Edición de un video de 15 minutos para un canal de videojuegos: clips de muchos juegos sincronizados con la narración, humor visual y audio a −14 LUFS.",
+  "summary": "Edición del video «NO necesitas programar BIEN para hacer BUENOS JUEGOS», de 15 minutos, para el canal @ryugamedev. Uní clips de juegos sin relación entre sí en una sola narrativa, añadí humor visual y dejé el audio listo para YouTube.",
+  "role": "Revisión del guion, búsqueda y selección de clips, edición, títulos y gráficos, musicalización, efectos de sonido, limpieza de voz y normalización a −14 LUFS.",
+  "problem": "El creador tenía el guion escrito y los momentos que necesitaban apoyo visual marcados, pero el material venía de muchos juegos sin relación entre sí. Había que hacer que todo pareciera una sola historia, respetar su voz y su humor, y subir el nivel de la imagen y el audio.",
+  "solution": "Organicé el trabajo en cinco fases:",
   "steps": [
     {
-      "title": "Refinamiento de guión",
-      "text": "revisión de estilo, lenguaje, puntuación y fluidez narrativa, alineando recomendaciones y chistes con el tono del creador."
+      "title": "Guion",
+      "text": "revisión de estilo, puntuación y fluidez, alineando chistes y recomendaciones con el tono del creador."
     },
     {
       "title": "Búsqueda de material",
-      "text": "identificación de clips de videojuegos que respondieran no solo a la temática explícita, sino también a oportunidades de humor visual (\"gags de comedia\")."
+      "text": "clips que respondieran al tema y que, además, abrieran oportunidades de humor visual."
     },
     {
       "title": "Sincronización",
-      "text": "organización del material para que múltiples juegos parecieran una narrativa cohesionada; timing de cortes sincronizado con los puntos de énfasis narrativo."
+      "text": "cortes alineados con los énfasis de la narración para que juegos distintos se leyeran como una sola historia."
     },
     {
       "title": "Capas visuales",
-      "text": "integración de títulos con microcomedia textual que reforzaban los chistes hablados sin competir con ellos."
+      "text": "títulos con humor que refuerzan los chistes hablados sin competir con ellos."
     },
     {
       "title": "Audio",
-      "text": "corrección y limpieza de voz, aplicación de LUFS estándar para YouTube y musicalización coherente."
+      "text": "limpieza de voz, normalización a −14 LUFS (el estándar de YouTube) y musicalización."
     }
   ],
   "tools": [
@@ -36,7 +36,7 @@
     "Adobe Podcast (Enhance Speech)"
   ],
   "credits": [
-    "Guión y concepto: @ryugamedev"
+    "Guion y concepto: @ryugamedev"
   ],
   "featured": true,
   "youtube": "https://youtu.be/FC05pWLkNrU?si=yDgxr4eJIyfO4oNW",
@@ -44,5 +44,11 @@
   "duration": "~15 min",
   "highlight": "3.8k vistas",
   "result": "El video publicado en el canal del cliente alcanzó 3.8k vistas en YouTube.",
-  "client": "@ryugamedev · YouTube"
+  "client": "@ryugamedev · YouTube",
+  "stillAlts": [
+    "Miniatura del video: código con la palabra «Basura» y una flecha hacia un personaje pixelado con la palabra «Juegazo»",
+    "Persona frente a un portátil con títulos animados: parálisis por perfeccionismo, síndrome del impostor y otros",
+    "Mascota del canal, un dragón ilustrado, junto a una escena de un juego de plataformas en 3D",
+    "Cierre con la mascota y las redes del creador: Instagram ryu_gamedev y X @gamedevryu"
+  ]
 }

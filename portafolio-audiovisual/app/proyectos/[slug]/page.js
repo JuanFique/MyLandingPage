@@ -215,7 +215,7 @@ export default async function ProjectPage({ params }) {
             <Reveal>
               <div className="case-section">
                 <h2>Fotogramas</h2>
-                <Gallery stills={project.media.stills} title={project.title} />
+                <Gallery stills={project.media.stills} title={project.title} alts={project.stillAlts} />
               </div>
             </Reveal>
           )}

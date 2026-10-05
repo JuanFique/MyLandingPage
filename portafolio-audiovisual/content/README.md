@@ -34,6 +34,7 @@ Cada proyecto es UN archivo en `content/projects/`. No hay que tocar código.
 | `client` | No | Cliente o contexto CORTO para la tarjeta, ej. `"IEIE · Universidad Distrital"` |
 | `highlight` | No | Resultado en pocas palabras, sale sobre la miniatura: `"Nota 5.0"`, `"3.8k vistas"` |
 | `result` | No | Resultado en una frase, sección "Resultado" del caso |
+| `stillAlts` | No | Lista con la descripción de cada fotograma (`still-1`, `still-2`…), en el mismo orden. La leen los lectores de pantalla |
 | `duration` | No | Duración del video, ej. `"0:30"` o `"~15 min"` |
 
 **Los campos opcionales que no uses, bórralos del archivo.** No los dejes vacíos: si no existen, la página simplemente no dibuja esa sección.
