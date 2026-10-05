@@ -72,9 +72,22 @@ export async function generateMetadata({ params }) {
 
   if (!project) return {};
 
+  const title = `${project.title} — Juan David Fique Velasco`;
+  const cover = project.media.cover;
+
   return {
-    title: `${project.title} — Juan David Fique Velasco`,
+    title,
     description: project.summary,
+    // Al compartir ESTE proyecto, la vista previa usa su propia portada (versión optimizada
+    // de ~1200 px, liviana). Sin portada no se define nada aquí y vale la imagen general.
+    ...(cover && {
+      openGraph: {
+        title,
+        description: project.summary,
+        type: 'website',
+        images: [{ url: getPosterUrl(cover, 600), width: 1200, height: 675 }],
+      },
+    }),
   };
 }
 

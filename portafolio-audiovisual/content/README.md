@@ -44,6 +44,7 @@ Un solo archivo con lo que no es de un proyecto en particular:
 - `email`: el correo del botón "Escríbeme".
 - `linkedin` y `youtube`: los enlaces del pie de página. Para agregar o quitar una red hay que editar `components/Footer.js`.
 - `whatsapp`: tu número con código de país, solo dígitos, sin `+` ni espacios (Colombia: `57` + 10 dígitos, ej. `573001234567`). Si lo dejas vacío (`""`), el enlace de WhatsApp no aparece. `whatsappMessage` es el mensaje que le aparece escrito a quien te escribe.
+- `url` (opcional): la dirección de tu sitio, ej. `"https://tu-dominio.com"`. Si no la pones, se toma sola de Vercel; solo úsala si el sitemap o la vista previa muestran una dirección equivocada.
 - `reelYoutube`: el enlace de YouTube de tu reel (hero del Home). Si pones archivos propios en `public/reel/` (`reel.mp4`), esos tienen prioridad.
 - `about`: el texto de "Sobre mí", un párrafo por línea de la lista. La foto es `public/about.jpg`.
 
