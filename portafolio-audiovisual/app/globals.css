@@ -605,16 +605,18 @@ section { padding-block: var(--space-6); }
 }
 
 /* --- Entrada de página: la aplica app/template.js en CADA navegación --- */
-@keyframes page-enter { from { opacity: 0; } }
-.page-enter { animation: page-enter var(--dur-base) ease both; }
+/* Solo `transform`: animar `opacity` desde 0 retrasa el LCP (el texto "no cuenta" como pintado
+   hasta que es visible). Con transform el contenido ya está en pantalla desde el primer cuadro. */
+@keyframes page-enter { from { transform: translateY(6px); } }
+.page-enter { animation: page-enter var(--dur-base) var(--ease-out) both; }
 
 /* --- Menú móvil: entrada suave (la salida es instantánea: ver explicación) --- */
 @keyframes menu-in { from { opacity: 0; transform: translateY(-8px); } }
 
 /* --- Entrada en cascada del hero y del encabezado de proyecto ---
    Cada hijo entra un poco después que el anterior. `both` mantiene el
-   estado inicial (invisible) durante el retraso. */
-@keyframes fade-up { from { opacity: 0; transform: translateY(16px); } }
+   estado inicial (desplazado) durante el retraso. */
+@keyframes fade-up { from { transform: translateY(12px); } }
 
 .hero-content > *,
 .hero-media,

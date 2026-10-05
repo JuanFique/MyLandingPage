@@ -17,7 +17,7 @@ export default function ProjectCard({ project }) {
             src={project.media.cover}
             alt=""
             fill
-            sizes="(min-width: 768px) 33vw, 100vw"
+            sizes="(min-width: 1180px) 360px, (min-width: 768px) 30vw, 100vw"
           />
         </div>
       ) : (

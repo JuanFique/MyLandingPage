@@ -266,3 +266,28 @@ Pendientes por diseño: A4 (animaciones de entrada) se aborda en la Fase 2 junto
 | Pruebas e2e en el repo | 0 | 27 (`npm run test:e2e`) |
 
 Nota: `npm audit` reporta una vulnerabilidad *high* en `braces` (cadena de `eslint-config-next`, solo desarrollo, no llega al sitio). Corregirla implicaría un cambio mayor de versión, así que no se tocó.
+
+---
+
+## 8. Registro de la Fase 2 (Performance y Core Web Vitals)
+
+Cambios:
+- **P1 / A4:** las animaciones de entrada (`page-enter`, `fade-up`) ya no animan `opacity` desde 0, solo `transform`. El contenido está visible desde el primer cuadro; antes el texto del hero no "contaba" para el LCP hasta ~0.8 s después.
+- **CSS render-blocking:** `experimental.inlineCss` incrusta el CSS en el HTML (se elimina la hoja externa). *Insight de render-blocking: 0 → sin hallazgos.*
+- **P2:** `sizes` de las tarjetas ajustado al ancho real (`360px` en escritorio). *Insight de entrega de imágenes: sin hallazgos.*
+- **P3 / P4:** imágenes fuente recomprimidas (máx. 1600 px, JPEG mozjpeg q80): **7.6 MB → 2.8 MB** en `public/`. Mismos nombres y proporción 16:9.
+- **K3:** eliminados 5 SVG sin usar de la plantilla de create-next-app.
+
+| Lighthouse móvil (mediana de 3 corridas, local) | Antes | Después |
+|---|---|---|
+| Home — Perf / A11y / BP / SEO | 95 / 100 / 100 / 100 | **100** / 100 / 100 / 100 (rango 98–100) |
+| Home — LCP | 2.9 s | 1.8 s (rango 1.7–2.4 s) |
+| Home — CLS | 0 | 0 |
+| Home — TBT (proxy de INP) | 110 ms | 50 ms |
+| Home — peso transferido | 265 KiB | 273 KiB (sin contar imágenes bajo el pliegue) |
+| Página de proyecto — Perf | 100 | 100 (LCP 1.6–2.3 s) |
+| Escritorio — todas las categorías | 100 | 100 |
+
+Meta ≥ 95 en las cuatro categorías en móvil: **cumplida**.
+
+Pendiente / no accionable: ~27 KiB de JS "no usado" es el runtime de React/Next (no se puede recortar sin cambiar de stack). La variación de LCP entre corridas (1.7–2.4 s) es ruido del throttling simulado. Las métricas de campo reales (CrUX) solo estarán disponibles con tráfico en producción.
