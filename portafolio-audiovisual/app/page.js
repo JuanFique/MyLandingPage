@@ -102,6 +102,7 @@ export default function Home() {
       {/* SOBRE MÍ (extracto) */}
       <section id="sobre-mi" className="container">
         <Reveal>
+          <h2 className="about-heading">Sobre mí</h2>
           <div className="about-brief">
             <div className="about-photo">
               <Image
@@ -112,7 +113,6 @@ export default function Home() {
               />
             </div>
             <div className="about-text">
-              <h2>Sobre mí</h2>
               {/* El texto vive en content/site.json ("about"): un párrafo por elemento. */}
               {site.about.map(paragraph => (
                 <p key={paragraph}>{paragraph}</p>
@@ -131,7 +131,7 @@ export default function Home() {
               <a href={`mailto:${site.email}`} className="btn">Escríbeme</a>
               {whatsappUrl && (
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="link-underline">
-                  WhatsApp
+                  WhatsApp<span className="sr-only"> (se abre en una pestaña nueva)</span>
                 </a>
               )}
             </div>

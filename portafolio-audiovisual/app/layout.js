@@ -16,6 +16,9 @@ const spaceGrotesk = Space_Grotesk({
 const title = 'Juan David Fique Velasco — Portafolio audiovisual';
 const description = 'Portafolio de Juan David Fique Velasco: producción audiovisual, motion graphics, edición y narrativa visual.';
 
+// Declara que la página es oscura: barras de scroll y controles nativos salen oscuros.
+export const viewport = { colorScheme: 'dark', themeColor: '#1E1E24' };
+
 export const metadata = {
   // metadataBase convierte las direcciones relativas (como la imagen para compartir)
   // en direcciones completas, que es lo que exigen WhatsApp, LinkedIn y compañía.
@@ -40,8 +43,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es" className={spaceGrotesk.variable}>
       <body>
+        {/* Skip link: primer elemento enfocable; permite saltar la navegación con teclado. */}
+        <a href="#contenido" className="skip-link">Saltar al contenido</a>
         <Header />
-        <main>{children}</main>
+        <main id="contenido" tabIndex={-1}>{children}</main>
         <Footer />
       </body>
     </html>

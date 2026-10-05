@@ -31,9 +31,11 @@ export default function ProjectCard({ project }) {
         <Link href={detailUrl}>{project.title}</Link>
       </h3>
       <p className="project-desc">{project.description}</p>
-      <Link href={detailUrl} className="link-underline">
-        Ver proyecto <span className="arrow" aria-hidden="true">→</span>
-      </Link>
+      {/* Texto visual, no enlace: toda la tarjeta se activa desde el enlace del título
+          (ver .project-title a::after). Así hay una sola parada de teclado por tarjeta. */}
+      <span className="link-underline" aria-hidden="true">
+        Ver proyecto <span className="arrow">→</span>
+      </span>
     </article>
   );
 }

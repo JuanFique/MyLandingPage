@@ -9,8 +9,12 @@ export default function Footer() {
       <div className="social-links">
         {/* target="_blank" abre en pestaña nueva; rel="noopener noreferrer" es la
             medida de seguridad estándar que debe acompañarlo. */}
-        <a href={site.youtube} target="_blank" rel="noopener noreferrer">YouTube</a>
-        <a href={site.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href={site.youtube} target="_blank" rel="noopener noreferrer">
+          YouTube<span className="sr-only"> (se abre en una pestaña nueva)</span>
+        </a>
+        <a href={site.linkedin} target="_blank" rel="noopener noreferrer">
+          LinkedIn<span className="sr-only"> (se abre en una pestaña nueva)</span>
+        </a>
       </div>
     </footer>
   );

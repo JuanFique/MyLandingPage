@@ -249,3 +249,20 @@ Severidad: **Crítico** (bloquea o daña la impresión en los primeros 30 s) · 
 - Script Playwright propio: orden de tabulación y estilo de foco, headings, landmarks, metadatos, tamaño de objetivos, scroll horizontal, `Esc` en menú, `prefers-reduced-motion`, `prefers-color-scheme: light`, errores de consola, capturas completas.
 - Contraste calculado con la fórmula de luminancia relativa WCAG sobre los tokens de `globals.css`.
 - Las herramientas de auditoría se instalaron en un directorio temporal **fuera del repo**; no se añadió ninguna dependencia al proyecto.
+
+---
+
+## 7. Registro de la Fase 1 (Accesibilidad)
+
+Resueltos: A1 (skip link), A2 (menú: `Esc`, clic fuera, retorno del foco), A3 (un solo enlace por tarjeta, tarjeta completa clicable y con foco visible), A5 (objetivos táctiles ≥ 44 px en logo, nav, footer, botón de menú y "Copiar correo"; áreas ampliadas en "Contactarme" y "Todos los proyectos"), A6 (aviso de pestaña nueva para lectores), A7 (el foco pasa al iframe de YouTube), A9 (el `h2` "Sobre mí" precede a la foto), `color-scheme: dark` + `theme-color`, `aria-label` en el `nav`.
+Pendientes por diseño: A4 (animaciones de entrada) se aborda en la Fase 2 junto con el LCP; A8 (alt de galería) se redactará en la Fase 4 con descripciones reales.
+
+| Medida | Antes | Después |
+|---|---|---|
+| axe (7 rutas × 3 anchos) | 0 violaciones | 0 violaciones (21 pruebas automatizadas) |
+| Lighthouse A11y (móvil/escritorio) | 100 / 100 | 100 / 100 |
+| Paradas de Tab por tarjeta | 2 | 1 |
+| Skip link / `Esc` en menú / foco al iframe | no / no / no | sí / sí / sí |
+| Pruebas e2e en el repo | 0 | 27 (`npm run test:e2e`) |
+
+Nota: `npm audit` reporta una vulnerabilidad *high* en `braces` (cadena de `eslint-config-next`, solo desarrollo, no llega al sitio). Corregirla implicaría un cambio mayor de versión, así que no se tocó.

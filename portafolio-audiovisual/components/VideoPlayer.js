@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 // Reproductor de YouTube con "fachada": al cargar la página NO se descarga nada
@@ -16,12 +16,20 @@ export default function VideoPlayer({
   sizes = '(min-width: 1180px) 1140px, 100vw',
 }) {
   const [playing, setPlaying] = useState(false);
+  const iframeRef = useRef(null);
+
+  // Al activar el play, el botón desaparece: pasamos el foco al reproductor para no
+  // dejar a quien usa teclado o lector de pantalla "en el vacío".
+  useEffect(() => {
+    if (playing) iframeRef.current?.focus();
+  }, [playing]);
 
   if (playing) {
     return (
       <div className="media-frame">
         {/* youtube-nocookie.com: la versión de YouTube que no instala cookies de seguimiento */}
         <iframe
+          ref={iframeRef}
           src={`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0`}
           title={`Video: ${title}`}
           allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
