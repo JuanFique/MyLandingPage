@@ -291,3 +291,35 @@ Cambios:
 Meta ≥ 95 en las cuatro categorías en móvil: **cumplida**.
 
 Pendiente / no accionable: ~27 KiB de JS "no usado" es el runtime de React/Next (no se puede recortar sin cambiar de stack). La variación de LCP entre corridas (1.7–2.4 s) es ruido del throttling simulado. Las métricas de campo reales (CrUX) solo estarán disponibles con tráfico en producción.
+
+---
+
+## 9. Registro de la Fase 3 (Rediseño UI/UX — opción A "Sala de edición")
+
+Decisiones del autor: opción A; orden de proyectos 1. Introducción a la Cátedra (destacado) · 2. Bolsa ninja · 3. Hitos · 4. Cortinilla · 5. Fallas de mercado · 6. Ryu; CV en PDF sin referencias y con "Estudiante de último semestre" en lugar de "Ingeniero"; logros (hackatón, certificado IEIE) **no** se muestran en el sitio.
+
+**Sistema**
+- Tokens de color claro/oscuro (siguen `prefers-color-scheme`), todos ≥ 4.5:1. Acento único "REC" (`#FF5A36` / `#C8381A`).
+- Escala tipográfica 12–56 px (~1.4) y espaciado en múltiplos de 4 px.
+- Tipografía: Inter Tight 700 para títulos (un solo archivo de ~23 KB); texto y metadatos con fuentes del sistema (`system-ui`, `ui-monospace`). *Desviación de la propuesta:* Inter y JetBrains Mono se descartaron porque sumaban ~85 KB y bajaban el rendimiento móvil a 93–94 (el póster del reel, LCP en móvil, compartía ancho de banda con ellas).
+
+**Estructura y componentes**
+- Header fijo con barra de progreso de lectura (CSS puro, oculta con "reducir movimiento") y CTA "Descargar CV".
+- Hero: disponibilidad ("Busco prácticas como editor de video · Bogotá o remoto"), titular, párrafo con clientes reales y 3 CTA (CV, Escríbeme, LinkedIn). La píldora "Ver reel" ya no tapa el título del póster (U2).
+- Franja de resultados reales: 3.8k vistas · entrega en < 1 semana · nota 5.0 en 3 proyectos.
+- Proyectos en mosaico: el primero 2×2, tarjetas tipo "clip" con resultado y duración sobre la miniatura, cliente visible (U3), orden manual con `order` (U4, U5), "playhead" al pasar el cursor o enfocar.
+- Sobre mí con línea de estudios y herramientas agrupadas (del CV).
+- Contacto con Escríbeme, WhatsApp, LinkedIn, CV y correo copiable.
+- Página de proyecto tipo case study: ficha técnica (rol, contexto, resultado, herramientas, duración), video, enlace a YouTube, El reto → Enfoque → Resultado, galería con ampliación (`<dialog>` nativo, flechas, Esc, foco gestionado) (U7), créditos, siguiente proyecto y CTA (U6).
+- 404 con el mismo sistema.
+
+**Verificación**
+
+| Medida | Fase 2 | Fase 3 |
+|---|---|---|
+| Lighthouse móvil home (mediana de 5) | 100 / 100 / 100 / 100 | 97 / 100 / 100 / 100 (rango 96–100) |
+| LCP móvil home | 1.8 s (texto) | 2.4 s (póster del reel; observado sin throttling: 0.11 s) |
+| Lighthouse móvil proyecto | 100 | 98–99 / 100 / 100 / 100 |
+| CLS | 0 | 0 |
+| axe (7 rutas × 3 anchos × 2 temas) | 21 pruebas, 0 violaciones | 42 pruebas, 0 violaciones |
+| Pruebas e2e | 27 | 51 |

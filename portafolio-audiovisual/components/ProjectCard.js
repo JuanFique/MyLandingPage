@@ -1,40 +1,65 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-// Esto es tu createProjectCard(project) de la Fase 2, convertido en componente.
-// `{ project }` recibe la "prop" que le pasa quien lo usa:  <ProjectCard project={...} />
-export default function ProjectCard({ project }) {
+// Tarjeta tipo "clip": miniatura con duración y resultado, metadatos en mono.
+// `featured` = la tarjeta grande del mosaico (título mayor y herramientas visibles).
+export default function ProjectCard({ project, featured = false }) {
   const detailUrl = `/proyectos/${project.slug}`;
 
   return (
-    <article className="project-card">
-      {project.media.cover ? (
-        <div className="media-frame">
-          {/* `sizes` le dice al navegador qué tan ancha se dibujará la imagen (1/3 de la
-              pantalla en escritorio, todo el ancho en móvil) para que descargue una versión
-              del tamaño justo y no la original. alt="" porque el título aparece justo debajo. */}
+    <article className={featured ? 'clip clip--featured' : 'clip'}>
+      <div className="clip-thumb media-frame">
+        {project.media.cover ? (
+          // alt="" porque el título (justo debajo) ya nombra el proyecto.
           <Image
             src={project.media.cover}
             alt=""
             fill
-            sizes="(min-width: 1180px) 360px, (min-width: 768px) 30vw, 100vw"
+            sizes={
+              featured
+                ? '(min-width: 1180px) 760px, (min-width: 1024px) 64vw, 100vw'
+                : '(min-width: 1180px) 360px, (min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw'
+            }
           />
-        </div>
-      ) : (
-        <div className="media-placeholder">IMG — {project.title}</div>
-      )}
-      <div className="project-meta">
-        <span>{project.category}</span>
+        ) : (
+          <div className="media-placeholder">IMG — {project.title}</div>
+        )}
+        {project.highlight && (
+          <span className="clip-tag clip-tag--result">
+            <span className="rec-dot" aria-hidden="true" />
+            {project.highlight}
+          </span>
+        )}
+        {project.duration && (
+          <span className="clip-tag clip-tag--duration">
+            <span className="sr-only">Duración: </span>
+            {project.duration}
+          </span>
+        )}
+      </div>
+
+      <div className="clip-meta mono">
+        <span>{project.client ?? project.category}</span>
         <span>{project.year}</span>
       </div>
-      <h3 className="project-title">
+
+      <h3 className="clip-title">
         <Link href={detailUrl}>{project.title}</Link>
       </h3>
-      <p className="project-desc">{project.description}</p>
-      {/* Texto visual, no enlace: toda la tarjeta se activa desde el enlace del título
-          (ver .project-title a::after). Así hay una sola parada de teclado por tarjeta. */}
-      <span className="link-underline" aria-hidden="true">
-        Ver proyecto <span className="arrow">→</span>
+
+      <p className="clip-desc">{project.description}</p>
+
+      {featured && (
+        <ul className="track-list" role="list" aria-label="Herramientas">
+          {project.tools.map(tool => (
+            <li className="track" key={tool}>{tool}</li>
+          ))}
+        </ul>
+      )}
+
+      {/* Texto visual, no enlace: toda la tarjeta se activa desde el enlace del título. */}
+      <span className="text-link clip-cta" aria-hidden="true">
+        Ver caso <span className="arrow">→</span>
       </span>
     </article>
   );

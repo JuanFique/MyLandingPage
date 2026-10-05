@@ -30,6 +30,11 @@ Cada proyecto es UN archivo en `content/projects/`. No hay que tocar código.
 | `credits` | No | Lista de créditos: `["Música: …"]` |
 | `featured` | No | `true` = aparece en "Proyectos destacados" del Home |
 | `youtube` | No | Enlace del video en YouTube ("no listado"). Ver `content/MEDIA.md` |
+| `order` | No | Posición en el Home: `1` = tarjeta grande destacada, luego `2`, `3`… Sin `order`, va al final (por año) |
+| `client` | No | Cliente o contexto CORTO para la tarjeta, ej. `"IEIE · Universidad Distrital"` |
+| `highlight` | No | Resultado en pocas palabras, sale sobre la miniatura: `"Nota 5.0"`, `"3.8k vistas"` |
+| `result` | No | Resultado en una frase, sección "Resultado" del caso |
+| `duration` | No | Duración del video, ej. `"0:30"` o `"~15 min"` |
 
 **Los campos opcionales que no uses, bórralos del archivo.** No los dejes vacíos: si no existen, la página simplemente no dibuja esa sección.
 
@@ -42,11 +47,16 @@ No van en el JSON: se colocan en `public/projects/<nombre-del-proyecto>/` con no
 Un solo archivo con lo que no es de un proyecto en particular:
 
 - `email`: el correo del botón "Escríbeme".
-- `linkedin` y `youtube`: los enlaces del pie de página. Para agregar o quitar una red hay que editar `components/Footer.js`.
+- `linkedin` y `youtube`: enlaces del hero, contacto y pie de página. Para agregar o quitar una red hay que editar `components/Footer.js`.
 - `whatsapp`: tu número con código de país, solo dígitos, sin `+` ni espacios (Colombia: `57` + 10 dígitos, ej. `573001234567`). Si lo dejas vacío (`""`), el enlace de WhatsApp no aparece. `whatsappMessage` es el mensaje que le aparece escrito a quien te escribe.
 - `url` (opcional): la dirección de tu sitio, ej. `"https://tu-dominio.com"`. Si no la pones, se toma sola de Vercel; solo úsala si el sitemap o la vista previa muestran una dirección equivocada.
 - `reelYoutube`: el enlace de YouTube de tu reel (hero del Home). Si pones archivos propios en `public/reel/` (`reel.mp4`), esos tienen prioridad.
 - `about`: el texto de "Sobre mí", un párrafo por línea de la lista. La foto es `public/about.jpg`.
+- `name`, `headline`, `lede`, `availability`: nombre, titular, párrafo y disponibilidad del hero.
+- `education`: línea de estudios de "Sobre mí".
+- `cv`: ruta del CV en PDF (`public/cv/…`). Para actualizarlo, reemplaza el archivo con el mismo nombre.
+- `stats`: los 3 datos de la franja bajo el hero (`value` + `label`). Solo datos reales y verificables.
+- `skills`: herramientas agrupadas de "Sobre mí".
 
 ## Errores típicos de JSON
 
@@ -57,4 +67,4 @@ Un solo archivo con lo que no es de un proyecto en particular:
 
 ## Orden
 
-El sitio ordena los proyectos del más reciente al más antiguo según `year`. Si hay empate, por orden alfabético del título.
+Los proyectos con `order` salen primero, en ese orden (el `1` es la tarjeta grande). Los que no lo tienen van después, del más reciente al más antiguo según `year`.

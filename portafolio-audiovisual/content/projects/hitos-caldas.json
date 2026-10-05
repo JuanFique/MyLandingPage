@@ -13,5 +13,9 @@
     "Adobe Podcast (Enhance Speech)"
   ],
   "featured": true,
-  "youtube": "https://youtu.be/xuVENszvkIc"
+  "youtube": "https://youtu.be/xuVENszvkIc",
+  "order": 3,
+  "highlight": "Entrega en < 1 semana",
+  "result": "Entregado en menos de una semana, con tiempo para revisión y corrección antes de publicarse en la plataforma de cursos del IEIE.",
+  "client": "IEIE · Universidad Distrital"
 }

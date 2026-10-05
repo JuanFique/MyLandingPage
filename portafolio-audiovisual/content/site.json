@@ -1,4 +1,11 @@
 {
+  "name": "Juan David Fique Velasco",
+  "role": "Editor de video y motion graphics",
+  "availability": "Busco prácticas como editor de video · Bogotá o remoto",
+  "headline": "Editor de video y motion graphics",
+  "lede": "Estudiante de último semestre de Ingeniería en Multimedia. He editado y animado piezas educativas para la Universidad Distrital, institucionales para la UMNG y videos para YouTube.",
+  "education": "Estudiante de décimo semestre de Ingeniería en Multimedia — Universidad Militar Nueva Granada",
+  "cv": "/cv/CV-Juan-David-Fique-Velasco.pdf",
   "email": "fiquejuandavid2@gmail.com",
   "linkedin": "https://www.linkedin.com/in/juandavidfique",
   "youtube": "https://www.youtube.com/@juandavidfiquevelasco8680",
@@ -9,5 +16,49 @@
     "Estudiante de ingeniería en multimedia con enfoque en producción audiovisual, postproducción y creación de contenido digital para medios interactivos. Formación en edición de video, motion graphics y modelado 3D, orientada al desarrollo de piezas audiovisuales con criterio narrativo, visual y comunicativo.",
     "Capacidad para integrar herramientas audiovisuales, diseño digital y tecnologías multimedia en flujos de producción creativos, transformando ideas y requerimientos en experiencias visuales dinámicas e innovadoras.",
     "Con habilidades en adaptabilidad, aprendizaje rápido y resolución de problemas aplicadas a proyectos multimedia. Utilizando software como Adobe Premiere Pro, DaVinci Resolve, Adobe After Effects, Blender y Figma para transformar ideas y requerimientos en experiencias visuales innovadoras e interactivas."
+  ],
+  "skills": [
+    {
+      "group": "Edición, postproducción y audio",
+      "tools": [
+        "Adobe Premiere Pro",
+        "DaVinci Resolve",
+        "Adobe Audition"
+      ]
+    },
+    {
+      "group": "Motion graphics",
+      "tools": [
+        "Adobe After Effects"
+      ]
+    },
+    {
+      "group": "Modelado 3D",
+      "tools": [
+        "Blender"
+      ]
+    },
+    {
+      "group": "Diseño digital",
+      "tools": [
+        "Adobe Photoshop",
+        "Adobe Illustrator",
+        "Figma"
+      ]
+    }
+  ],
+  "stats": [
+    {
+      "value": "3.8k",
+      "label": "vistas en el video que edité para @ryugamedev"
+    },
+    {
+      "value": "< 1 sem.",
+      "label": "por video educativo entregado al IEIE (Universidad Distrital)"
+    },
+    {
+      "value": "5.0",
+      "label": "de nota en 3 proyectos académicos, uno con 1.er lugar"
+    }
   ]
 }

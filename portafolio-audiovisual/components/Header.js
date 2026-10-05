@@ -2,9 +2,9 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import site from '@/content/site.json';
 
-// 'use client' (arriba) es necesario porque este componente tiene ESTADO:
-// recuerda si el menú está abierto o cerrado y reacciona a clics.
+// 'use client' es necesario porque este componente tiene ESTADO (menú abierto/cerrado).
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const headerRef = useRef(null);
@@ -37,7 +37,10 @@ export default function Header() {
   return (
     <header className="site-header" ref={headerRef}>
       <div className="container nav-bar">
-        <Link href="/" className="logo" onClick={closeMenu}>Juan David Fique Velasco</Link>
+        <Link href="/" className="logo" onClick={closeMenu}>
+          <span className="rec-dot" aria-hidden="true" />
+          {site.name}
+        </Link>
 
         <button
           ref={toggleRef}
@@ -54,8 +57,13 @@ export default function Header() {
           <Link href="/#proyectos" onClick={closeMenu}>Proyectos</Link>
           <Link href="/#sobre-mi" onClick={closeMenu}>Sobre mí</Link>
           <Link href="/#contacto" onClick={closeMenu}>Contacto</Link>
+          <a href={site.cv} className="nav-cv" download onClick={closeMenu}>
+            Descargar CV <span className="sr-only">(PDF)</span>
+          </a>
         </nav>
       </div>
+      {/* Barra de progreso de lectura, puramente decorativa */}
+      <div className="scroll-progress" aria-hidden="true" />
     </header>
   );
 }

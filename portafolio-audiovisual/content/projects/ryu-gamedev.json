@@ -39,5 +39,10 @@
     "Guión y concepto: @ryugamedev"
   ],
   "featured": true,
-  "youtube": "https://youtu.be/FC05pWLkNrU?si=yDgxr4eJIyfO4oNW"
+  "youtube": "https://youtu.be/FC05pWLkNrU?si=yDgxr4eJIyfO4oNW",
+  "order": 6,
+  "duration": "~15 min",
+  "highlight": "3.8k vistas",
+  "result": "El video publicado en el canal del cliente alcanzó 3.8k vistas en YouTube.",
+  "client": "@ryugamedev · YouTube"
 }
