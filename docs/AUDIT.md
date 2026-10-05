@@ -223,6 +223,24 @@ Severidad: **Crítico** (bloquea o daña la impresión en los primeros 30 s) · 
 
 ---
 
+## 6. Respuestas del autor (2026-10-05)
+
+| # | Tema | Respuesta | Afecta a |
+|---|---|---|---|
+| 1 | Titulación | **Estudiante de décimo semestre** de Ingeniería en Multimedia → el hero debe dejar de decir "Ingeniero" | C1 |
+| 2 | Objetivo | **Prácticas**, rol principal **editor de video**, **Bogotá o remoto** | X2, C3 |
+| 3 | CV | Tiene PDF; pendiente de recibir el archivo → irá en `public/` | X1 |
+| 4 | Resultados | Cátedra (IEIE): entregas en **menos de una semana** cada una, para revisión, corrección y publicación en la plataforma de cursos · Ryu: **3.8k vistas** · Cortinilla 25 años: **nota 5.0** · Bolsa ninja: **nota 5.0** · Fallas de mercado: **primer lugar** de la clase, **nota 5.0** | C2 |
+| 5 | Orden | 1. Bolsa ninja (estrella) · 2. Introducción a la Cátedra · 3. Hitos de Caldas · 4. Cortinilla 25 años · 5. Fallas de mercado · 6. Ryu | U4, U5 |
+| 6 | Técnica Bolsa ninja | **Keyframes sobre rig** (no frame-by-frame) | C7 |
+| 7 | Audio Ryu | Normalizado a **−14 LUFS** | C11 |
+| 8 | URL producción | `https://juandavidfiquevelasco.vercel.app` → fijar en `site.json` | S3 |
+| 9 | WhatsApp | Se mantiene visible | X4 |
+| 10 | Tests | Autorizado añadir `@playwright/test` + `@axe-core/playwright` (devDependencies) | K1 |
+| — | Enlaces | YouTube `https://www.youtube.com/@juandavidfiquevelasco8680` y LinkedIn `https://www.linkedin.com/in/juandavidfique` confirmados por el autor (coinciden con `site.json`) | Enlaces |
+
+---
+
 ## Anexo: metodología
 
 - `npm ci`, `npm run lint`, `npm run build`, `next start` en el puerto 3100.
