@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portafolio — Juan David Fique Velasco
 
-## Getting Started
+Portafolio de edición de video y motion graphics. Sitio estático hecho con **Next.js (App Router)** y **React**, sin base de datos ni dependencias de runtime extra. El contenido vive en archivos JSON, así que agregar o editar un proyecto no requiere tocar código.
 
-First, run the development server:
+**Sitio:** <https://juandavidfiquevelasco.vercel.app>
+
+## Qué incluye
+
+- Home con propuesta de valor, disponibilidad, CV descargable y proyectos en mosaico.
+- Páginas de proyecto tipo *case study* (rol, reto, enfoque, resultado, galería ampliable y siguiente proyecto).
+- Modo claro y oscuro según el sistema, `prefers-reduced-motion` respetado.
+- Accesibilidad WCAG 2.2 AA verificada con axe en cada cambio (ver `e2e/`).
+- SEO: metadatos y Open Graph por página, datos estructurados (JSON-LD), sitemap, robots y manifest.
+- Video de YouTube con carga diferida: no se descarga nada de terceros hasta que alguien le da play.
+
+## Cómo correrlo
+
+Requiere Node 20.9 o superior (`.nvmrc` apunta a 22).
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # compila para producción
+npm run start    # sirve el build
+npm run lint
+npm run test:e2e # pruebas con Playwright + axe (corre `npm run build` antes)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Para las pruebas en un entorno sin descarga de navegadores, apunta `PW_CHROMIUM_PATH` a un Chromium ya instalado.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Dónde editar el contenido
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Qué | Dónde |
+|---|---|
+| Titular, disponibilidad, "Sobre mí", datos destacados, enlaces | `content/site.json` |
+| Un proyecto | `content/projects/<nombre>.json` |
+| Imágenes y videos de un proyecto | `public/projects/<nombre>/` |
+| CV en PDF | `public/cv/` |
 
-## Learn More
+Guía completa de campos: [`content/README.md`](./content/README.md) y [`content/MEDIA.md`](./content/MEDIA.md).
 
-To learn more about Next.js, take a look at the following resources:
+## Estructura
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+app/          páginas, layout, sitemap, robots, manifest, íconos y estilos (globals.css)
+components/   Header, Footer, ProjectCard, Gallery, VideoPlayer, HeroReel, Reveal, CopyEmail
+content/      textos y datos en JSON
+lib/          lectura de proyectos y media, URL del sitio, datos estructurados
+e2e/          pruebas de accesibilidad, teclado y SEO
+docs/         auditoría (docs/AUDIT.md) y textos antes/después (docs/COPY.md)
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Despliegue
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Desplegado en Vercel. El *Root Directory* del proyecto en Vercel debe ser `portafolio-audiovisual`. La URL pública se define en `content/site.json` (`url`) y alimenta el sitemap, el robots y las imágenes para compartir.

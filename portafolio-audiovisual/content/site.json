@@ -1,13 +1,67 @@
 {
+  "name": "Juan David Fique Velasco",
+  "url": "https://juandavidfiquevelasco.vercel.app",
+  "role": "Editor de video y motion graphics",
+  "availability": "Busco prácticas como editor de video · Bogotá o remoto",
+  "metaDescription": "Portafolio de Juan David Fique Velasco, estudiante de Ingeniería en Multimedia en Bogotá. Edición de video, motion graphics y animación 3D. Busco prácticas como editor de video.",
+  "location": "Bogotá, Colombia",
+  "headline": "Editor de video y motion graphics",
+  "lede": "Estudiante de último semestre de Ingeniería en Multimedia. Convierto guion, narración y material en bruto en videos con ritmo y claridad, para la Universidad Distrital, la UMNG y creadores de YouTube.",
+  "education": "Estudiante de décimo semestre de Ingeniería en Multimedia — Universidad Militar Nueva Granada",
+  "cv": "/cv/CV-Juan-David-Fique-Velasco.pdf",
   "email": "fiquejuandavid2@gmail.com",
   "linkedin": "https://www.linkedin.com/in/juandavidfique",
   "youtube": "https://www.youtube.com/@juandavidfiquevelasco8680",
-  "reelYoutube": "https://youtu.be/moOT2dqSKQ4",
+  "reelYoutube": "https://youtu.be/EdVnO64p7YU",
   "whatsapp": "573114748260",
   "whatsappMessage": "Hola Juan David, vi tu portafolio y me gustaría hablar de un proyecto.",
   "about": [
-    "Estudiante de ingeniería en multimedia con enfoque en producción audiovisual, postproducción y creación de contenido digital para medios interactivos. Formación en edición de video, motion graphics y modelado 3D, orientada al desarrollo de piezas audiovisuales con criterio narrativo, visual y comunicativo.",
-    "Capacidad para integrar herramientas audiovisuales, diseño digital y tecnologías multimedia en flujos de producción creativos, transformando ideas y requerimientos en experiencias visuales dinámicas e innovadoras.",
-    "Con habilidades en adaptabilidad, aprendizaje rápido y resolución de problemas aplicadas a proyectos multimedia. Utilizando software como Adobe Premiere Pro, DaVinci Resolve, Adobe After Effects, Blender y Figma para transformar ideas y requerimientos en experiencias visuales innovadoras e interactivas."
+    "Estoy en décimo semestre de Ingeniería en Multimedia en la Universidad Militar Nueva Granada y busco mis prácticas como editor de video, en Bogotá o en remoto.",
+    "Mi fuerte es la edición y la postproducción: armar el ritmo de una pieza, sincronizar la imagen con la narración y la música, y dejar el audio listo para publicar. Lo complemento con motion graphics en After Effects y DaVinci Resolve, y con animación 3D en Blender.",
+    "He hecho videos educativos para el IEIE de la Universidad Distrital con plazos de menos de una semana, la cortinilla de los 25 años de mi programa y la edición de un video de 15 minutos para un creador de contenido de videojuegos."
+  ],
+  "skills": [
+    {
+      "group": "Edición, postproducción y audio",
+      "tools": [
+        "Adobe Premiere Pro",
+        "DaVinci Resolve",
+        "Adobe Audition"
+      ]
+    },
+    {
+      "group": "Motion graphics",
+      "tools": [
+        "Adobe After Effects"
+      ]
+    },
+    {
+      "group": "Modelado 3D",
+      "tools": [
+        "Blender"
+      ]
+    },
+    {
+      "group": "Diseño digital",
+      "tools": [
+        "Adobe Photoshop",
+        "Adobe Illustrator",
+        "Figma"
+      ]
+    }
+  ],
+  "stats": [
+    {
+      "value": "3.8k",
+      "label": "vistas del video de 15 minutos que edité para @ryugamedev"
+    },
+    {
+      "value": "< 1 sem.",
+      "label": "por video educativo entregado al IEIE de la Universidad Distrital"
+    },
+    {
+      "value": "1.er",
+      "label": "lugar de la clase de Economía y Finanzas con un video explicativo"
+    }
   ]
 }
