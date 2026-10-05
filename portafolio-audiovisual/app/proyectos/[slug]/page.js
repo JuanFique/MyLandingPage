@@ -1,10 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import Gallery from '@/components/Gallery';
 import Reveal from '@/components/Reveal';
+import ToolTag from '@/components/ToolTag';
 import VideoPlayer from '@/components/VideoPlayer';
+import site from '@/content/site.json';
 import { getPosterUrl } from '@/lib/media';
-import { getAllProjects, getProjectBySlug } from '@/lib/projects';
+import { getAllProjects, getNextProject, getProjectBySlug } from '@/lib/projects';
+import { projectJsonLd, toJsonLd } from '@/lib/structured-data';
+
+const NEW_TAB = <span className="sr-only"> (se abre en una pestaña nueva)</span>;
 
 // Elige qué mostrar como media principal, en este orden de prioridad:
 //   1. Video de YouTube (campo "youtube" del JSON) → reproductor con fachada
@@ -72,76 +78,115 @@ export async function generateMetadata({ params }) {
 
   if (!project) return {};
 
-  const title = `${project.title} — Juan David Fique Velasco`;
+  // El título lleva " — Juan David Fique Velasco" automáticamente (ver title.template en layout.js).
   const cover = project.media.cover;
-
-  return {
-    title,
+  const social = {
+    title: project.title,
     description: project.summary,
     // Al compartir ESTE proyecto, la vista previa usa su propia portada (versión optimizada
-    // de ~1200 px, liviana). Sin portada no se define nada aquí y vale la imagen general.
-    ...(cover && {
-      openGraph: {
-        title,
-        description: project.summary,
-        type: 'website',
-        images: [{ url: getPosterUrl(cover, 600), width: 1200, height: 675 }],
-      },
-    }),
+    // de ~1200 px, liviana). Sin portada vale la imagen general.
+    ...(cover && { images: [{ url: getPosterUrl(cover, 600), width: 1200, height: 675, alt: project.title }] }),
+  };
+
+  return {
+    title: project.title,
+    description: project.summary,
+    alternates: { canonical: `/proyectos/${slug}` },
+    openGraph: { ...social, type: 'website', url: `/proyectos/${slug}`, siteName: site.name, locale: 'es_CO' },
+    twitter: { card: 'summary_large_image', ...social },
   };
 }
 
-// 3. La página. `params` trae la parte variable de la URL:
-//    en /proyectos/hitos-caldas → { slug: 'hitos-caldas' }.
-//    Es una promesa en las versiones recientes de Next, por eso el `await`.
+// 3. La página: un "case study" — ficha técnica, reto → enfoque → resultado, galería,
+//    y al final el siguiente proyecto y una invitación a contactar.
 export default async function ProjectPage({ params }) {
   const { slug } = await params;
   const project = getProjectBySlug(slug); // undefined si no existe
 
-  // Si el slug no corresponde a ningún proyecto, muestra la página 404.
   if (!project) {
     notFound();
   }
 
-  // En JSX, `condición && <html>` dibuja el html solo si la condición se cumple:
-  // es el mismo patrón de "campo opcional" de la Fase 2, con otra sintaxis.
+  const next = getNextProject(slug);
+  const youtubeUrl = project.youtubeId ? `https://www.youtube.com/watch?v=${project.youtubeId}` : null;
+
   return (
     <>
-      <section className="project-header container">
-        <Link href="/#proyectos" className="back-link">← Todos los proyectos</Link>
-
-        <div className="project-meta">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(projectJsonLd(project)) }} />
+      <section className="case-header container" aria-labelledby="case-title">
+        <Link href="/#proyectos" className="text-link back-link">← Todos los proyectos</Link>
+        <p className="clip-meta mono">
           <span>{project.category}</span>
           <span>{project.year}</span>
-        </div>
-        <h1>{project.title}</h1>
-        {project.context && <p className="project-client">{project.context}</p>}
-        <p className="project-summary">{project.summary}</p>
+        </p>
+        <h1 id="case-title">{project.title}</h1>
+        <p className="case-lede">{project.summary}</p>
 
-        <div className="role-callout">
-          <span className="label">Mi rol</span>
-          <p>{project.role}</p>
-        </div>
+        <dl className="case-facts">
+          <div className="fact-role">
+            <dt className="mono">Mi rol</dt>
+            <dd>{project.role}</dd>
+          </div>
+          {project.context && (
+            <div>
+              <dt className="mono">Contexto</dt>
+              <dd>{project.context.replace(/^Cliente:\s*/, '')}</dd>
+            </div>
+          )}
+          {project.highlight && (
+            <div className="fact-result">
+              <dt className="mono">Resultado</dt>
+              <dd>{project.highlight}</dd>
+            </div>
+          )}
+          <div>
+            <dt className="mono">Herramientas</dt>
+            <dd>
+              <ul className="track-list" role="list">
+                {project.tools.map(tool => (
+                  <ToolTag key={tool} name={tool} />
+                ))}
+              </ul>
+            </dd>
+          </div>
+          {project.duration && (
+            <div>
+              <dt className="mono">Duración</dt>
+              <dd>{project.duration}</dd>
+            </div>
+          )}
+        </dl>
       </section>
 
       {/* Sin <Reveal>: la media principal debe estar presente desde el primer momento */}
-      <section className="container">
+      <section className="case-media container" aria-label="Video del proyecto">
         <MainMedia project={project} />
+        {youtubeUrl && (
+          <p className="timecode mono">
+            <span>{project.duration ?? ''}</span>
+            <a href={youtubeUrl} className="text-link" target="_blank" rel="noopener noreferrer">
+              Ver en YouTube <span className="arrow" aria-hidden="true">↗</span>{NEW_TAB}
+            </a>
+          </p>
+        )}
       </section>
 
-      {(project.problem || project.solution) && (
-        <section className="container">
-          <Reveal>
-            <div className="two-col">
-              {project.problem && (
+      <section className="container">
+        <div className="case-sections">
+          {project.problem && (
+            <Reveal>
+              <div className="case-section">
+                <h2>El reto</h2>
+                <p>{project.problem}</p>
+              </div>
+            </Reveal>
+          )}
+
+          {project.solution && (
+            <Reveal>
+              <div className="case-section">
+                <h2>Enfoque</h2>
                 <div>
-                  <h2>Problema / brief</h2>
-                  <p>{project.problem}</p>
-                </div>
-              )}
-              {project.solution && (
-                <div>
-                  <h2>Solución / enfoque</h2>
                   <p>{project.solution}</p>
                   {project.steps && (
                     <ol className="steps-list">
@@ -153,57 +198,72 @@ export default async function ProjectPage({ params }) {
                     </ol>
                   )}
                 </div>
-              )}
+              </div>
+            </Reveal>
+          )}
+
+          {project.result && (
+            <Reveal>
+              <div className="case-section">
+                <h2>Resultado</h2>
+                <p className="result-callout">
+                  <span className="rec-dot" aria-hidden="true" />
+                  {project.result}
+                </p>
+              </div>
+            </Reveal>
+          )}
+
+          {project.media.stills.length > 0 && (
+            <Reveal>
+              <div className="case-section">
+                <h2>Fotogramas</h2>
+                <Gallery stills={project.media.stills} title={project.title} alts={project.stillAlts} />
+              </div>
+            </Reveal>
+          )}
+
+          {project.credits && (
+            <Reveal>
+              <div className="case-section">
+                <h2>Créditos</h2>
+                <ul className="credits-list" role="list">
+                  {project.credits.map(credit => (
+                    <li key={credit}>{credit}</li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          )}
+        </div>
+      </section>
+
+      <section className="container" aria-label="Seguir explorando">
+        <div className="case-next">
+          {next && next.slug !== project.slug && (
+            <article className="next-card">
+              <div className="media-frame">
+                {next.media.cover && <Image src={next.media.cover} alt="" fill sizes="240px" />}
+              </div>
+              <div>
+                <p className="mono">Siguiente proyecto</p>
+                <h2>
+                  <Link href={`/proyectos/${next.slug}`}>{next.title}</Link>
+                </h2>
+              </div>
+            </article>
+          )}
+          <div className="contact">
+            <h2>¿Te sirve este perfil para tu equipo?</h2>
+            <div className="contact-actions">
+              <Link href="/#contacto" className="btn btn--primary">Contactarme</Link>
+              <a href={site.cv} className="btn btn--ghost" download>
+                Descargar CV <span className="sr-only">(PDF)</span>
+              </a>
             </div>
-          </Reveal>
-        </section>
-      )}
-
-      <section className="container">
-        <Reveal>
-          <h2 style={{ marginBottom: '0.75rem', fontSize: '1rem' }}>Herramientas</h2>
-          <div className="tools-list">
-            {project.tools.map(tool => (
-              <span className="tag" key={tool}>{tool}</span>
-            ))}
           </div>
-        </Reveal>
+        </div>
       </section>
-
-      <section className="container">
-        <Reveal>
-          <h2 style={{ marginBottom: '1rem', fontSize: '1rem' }}>Galería</h2>
-          <div className="gallery-grid">
-            {project.media.stills.length > 0
-              ? project.media.stills.map((still, index) => (
-                  <div className="media-frame" key={still}>
-                    <Image
-                      src={still}
-                      alt={`Fotograma ${index + 1} de ${project.title}`}
-                      fill
-                      sizes="(min-width: 768px) 25vw, 50vw"
-                    />
-                  </div>
-                ))
-              : [1, 2, 3, 4].map(n => (
-                  <div className="media-placeholder" key={n}>Still {n}</div>
-                ))}
-          </div>
-        </Reveal>
-      </section>
-
-      {project.credits && (
-        <section className="container">
-          <Reveal>
-            <h2 style={{ marginBottom: '0.75rem', fontSize: '1rem' }}>Créditos</h2>
-            <ul className="credits-list">
-              {project.credits.map(credit => (
-                <li key={credit}>{credit}</li>
-              ))}
-            </ul>
-          </Reveal>
-        </section>
-      )}
     </>
   );
 }

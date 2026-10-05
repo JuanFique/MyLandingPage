@@ -1,21 +1,31 @@
 {
   "title": "Fallas de mercado: El paro",
-  "category": "Divulgación / explicativo",
+  "category": "Video explicativo",
   "year": 2026,
   "context": "Proyecto académico — Universidad Militar Nueva Granada",
-  "description": "Trabajo final de Economía y Finanzas que explica las implicaciones del paro como una falla de mercado en Colombia, con recursos audiovisuales que facilitan la comprensión del concepto.",
-  "summary": "Trabajo final de Economía y Finanzas que explica las implicaciones del paro como una falla de mercado en Colombia, utilizando recursos audiovisuales para facilitar la comprensión del concepto.",
-  "role": "Me encargué de diseñar la propuesta de presentación del contenido y de construir su ritmo audiovisual, incluyendo la selección y organización del material, las transiciones y la forma en que se presentó la información para favorecer la comprensión y retención del contenido.",
-  "problem": "Se necesitaba desarrollar una pieza audiovisual que explicara el concepto de forma clara y accesible, de manera que cualquier persona pudiera comprender en qué consiste esta falla de mercado y cuáles son sus implicaciones.",
-  "solution": "Se construyó una narrativa audiovisual basada en la combinación de video, imágenes, títulos y recursos gráficos que representan la problemática. Además, se incorporaron referencias bibliográficas destacadas visualmente para reforzar la credibilidad de la información y evidenciar su respaldo en fuentes verificables.",
+  "description": "Video explicativo sobre el paro como falla de mercado en Colombia. Ganó el primer lugar de la clase de Economía y Finanzas.",
+  "summary": "Trabajo final de Economía y Finanzas: un video que explica por qué el paro en Colombia puede entenderse como una falla de mercado y qué implicaciones tiene, con recursos audiovisuales que hacen fácil seguir el concepto.",
+  "role": "Propuesta de presentación del contenido y ritmo audiovisual: selección y orden del material, transiciones y diseño de cómo se presenta cada dato para que se entienda y se recuerde.",
+  "problem": "Había que explicar un concepto económico de forma que cualquier persona entendiera en qué consiste esta falla de mercado y qué consecuencias tiene.",
+  "solution": "Construí la narrativa combinando video, imágenes, títulos y gráficos que representan el problema. Destaqué en pantalla las referencias bibliográficas para mostrar que la información se apoya en fuentes verificables.",
   "tools": [
     "Adobe Premiere Pro",
     "Adobe After Effects",
     "Adobe Podcast (Enhance Speech)"
   ],
   "credits": [
-    "Felipe Salamanca — presentación y colaboración en guión"
+    "Felipe Salamanca — presentación y colaboración en el guion"
   ],
   "featured": true,
-  "youtube": "https://youtu.be/y2Es0mxnb0w"
+  "youtube": "https://youtu.be/y2Es0mxnb0w",
+  "order": 5,
+  "highlight": "1.er lugar de la clase",
+  "result": "Primer lugar de la clase de Economía y Finanzas.",
+  "client": "Académico · UMNG",
+  "stillAlts": [
+    "El presentador habla a cámara al aire libre, con el título «Economía colombiana» detrás",
+    "Infografía de diez figuras humanas, seis en rojo, con una cita resaltada sobre trabajo informal juvenil en Colombia",
+    "El presentador junto a los logos del DANE y del Banco de la República",
+    "Mercado callejero con gráficos bursátiles en rojo superpuestos"
+  ]
 }

@@ -53,6 +53,10 @@ function readProject(fileName) {
     throw new Error(`content/projects/${fileName}: "tools" debe ser una lista con al menos una herramienta.`);
   }
 
+  if (data.order !== undefined && !Number.isInteger(data.order)) {
+    throw new Error(`content/projects/${fileName}: "order" debe ser un número entero (ej. 1), sin comillas.`);
+  }
+
   // Campo opcional "youtube": se guarda solo el ID, sin importar cómo lo hayas pegado.
   let youtubeId = null;
   if (data.youtube !== undefined) {
@@ -69,14 +73,28 @@ function readProject(fileName) {
   return { slug, ...data, youtubeId, media: findProjectMedia(slug) };
 }
 
-// Todos los proyectos, del más reciente al más antiguo
-// (si hay empate de año, por orden alfabético del título).
+// Orden de aparición: primero los que tienen "order" (1, 2, 3…), en ese orden;
+// después los demás, del más reciente al más antiguo (y por título si hay empate).
+function compareProjects(a, b) {
+  const orderA = a.order ?? Infinity;
+  const orderB = b.order ?? Infinity;
+  if (orderA !== orderB) return orderA - orderB;
+  return b.year - a.year || a.title.localeCompare(b.title, 'es');
+}
+
 export function getAllProjects() {
   return fs
     .readdirSync(PROJECTS_DIR)
     .filter(fileName => fileName.endsWith('.json'))
     .map(readProject)
-    .sort((a, b) => b.year - a.year || a.title.localeCompare(b.title, 'es'));
+    .sort(compareProjects);
+}
+
+// El proyecto que sigue a `slug` en el orden del sitio (vuelve al primero al final).
+export function getNextProject(slug) {
+  const projects = getAllProjects();
+  const index = projects.findIndex(project => project.slug === slug);
+  return projects[(index + 1) % projects.length];
 }
 
 // Un proyecto por su slug, o undefined si no existe.

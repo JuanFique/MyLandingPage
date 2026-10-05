@@ -1,13 +1,13 @@
 {
   "title": "Bolsa ninja",
-  "category": "Animación",
+  "category": "Animación 3D",
   "year": 2025,
   "context": "Proyecto académico — Universidad Militar Nueva Granada",
-  "description": "Secuencia de animación 3D de 30 segundos: una bolsa ejecuta saltos y volteretas, con control de rig, sincronización música-movimiento y storytelling visual mediante cámara.",
-  "summary": "Secuencia de animación 3D de 30 segundos donde una bolsa ejecuta una serie de saltos y volteretas. El proyecto demuestra control técnico de rig, sincronización música-movimiento y storytelling visual mediante cámara.",
-  "role": "Me encargué del concepto visual y storytelling, animación frame-by-frame con rig de Blender, movimiento de cámara, sincronización música-ritmo y posproducción.",
-  "problem": "Primer proyecto de animación de largo formato: animar un personaje de 30 segundos aplicando principios de animación, con materiales, matte painting, movimiento de cámara, y sin errores de superposición o movimiento errático. Como requisito adicional se debía desarrollar un storytelling propio que justificara la situación del personaje.",
-  "solution": "Enfoque frame-by-frame combinado con análisis de referencias, priorizando las volteretas como el elemento que comunica energía y carácter. Sincronización rigurosa de la música con el ritmo de movimiento y composición visual reforzada con barras negras que enfatizan los momentos de acción.",
+  "description": "Animación 3D de 30 segundos en Blender: una bolsa salta y da volteretas al ritmo de la música, con una cámara que refuerza cada acción.",
+  "summary": "Secuencia de animación 3D de 30 segundos en la que una bolsa ejecuta saltos y volteretas. La animé con keyframes sobre un rig en Blender, sincronicé cada movimiento con la música y usé la cámara para contar la historia.",
+  "role": "Concepto y narrativa visual, animación con keyframes sobre el rig en Blender, movimientos de cámara, sincronización con la música y postproducción en Premiere Pro.",
+  "problem": "Era mi primer proyecto de animación de personaje: 30 segundos que debían aplicar los principios de la animación, con materiales, matte painting y movimiento de cámara, sin que las piezas se atravesaran ni hubiera movimientos erráticos. Además, había que crear una historia propia que justificara lo que hace el personaje.",
+  "solution": "Animé con keyframes sobre el rig a partir de videos de referencia y prioricé las volteretas como el momento que transmite energía y carácter. Sincronicé el movimiento con el ritmo de la música y añadí barras negras en los momentos de acción para dirigir la mirada.",
   "tools": [
     "Blender",
     "Adobe Premiere Pro"
@@ -17,5 +17,14 @@
     "Fondo vectorizado tomado del juego Cat Search in Feudal Japan"
   ],
   "featured": true,
-  "youtube": "https://youtu.be/q3rx8FKfdWE"
+  "youtube": "https://youtu.be/q3rx8FKfdWE",
+  "order": 2,
+  "duration": "0:30",
+  "client": "Académico · UMNG",
+  "stillAlts": [
+    "La bolsa de pie en el borde de un tejado, frente a un cielo azul",
+    "Vista del proyecto en Blender: la bolsa en el aire sobre un paisaje japonés con un templo y cerezos",
+    "La bolsa en plena voltereta junto a un cerezo en flor, con barras negras de formato cine",
+    "La bolsa de frente con una flecha clavada, sobre un fondo de tejados oscuros"
+  ]
 }
