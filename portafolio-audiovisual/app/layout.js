@@ -1,4 +1,5 @@
 import { Inter_Tight } from 'next/font/google';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import site from '@/content/site.json';
@@ -63,6 +64,7 @@ export default function RootLayout({ children }) {
         <Header />
         <main id="contenido" tabIndex={-1}>{children}</main>
         <Footer />
+        <GoogleAnalytics gaId="G-XXXXXXXXXX" />
       </body>
     </html>
   );
