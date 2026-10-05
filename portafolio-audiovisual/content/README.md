@@ -32,7 +32,7 @@ Cada proyecto es UN archivo en `content/projects/`. No hay que tocar código.
 | `youtube` | No | Enlace del video en YouTube ("no listado"). Ver `content/MEDIA.md` |
 | `order` | No | Posición en el Home: `1` = tarjeta grande destacada, luego `2`, `3`… Sin `order`, va al final (por año) |
 | `client` | No | Cliente o contexto CORTO para la tarjeta, ej. `"IEIE · Universidad Distrital"` |
-| `highlight` | No | Resultado en pocas palabras, sale sobre la miniatura: `"Nota 5.0"`, `"3.8k vistas"` |
+| `highlight` | No | Resultado en pocas palabras, sale sobre la miniatura: `"3.8k vistas"`, `"1.er lugar de la clase"` |
 | `result` | No | Resultado en una frase, sección "Resultado" del caso |
 | `stillAlts` | No | Lista con la descripción de cada fotograma (`still-1`, `still-2`…), en el mismo orden. La leen los lectores de pantalla |
 | `duration` | No | Duración del video, ej. `"0:30"` o `"~15 min"` |

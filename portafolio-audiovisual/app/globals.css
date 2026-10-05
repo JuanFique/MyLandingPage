@@ -1,6 +1,6 @@
 /* ============================================================
    DIRECCIÓN VISUAL "SALA DE EDICIÓN"
-   Grises neutros como un monitor de edición, un solo acento "REC",
+   Paleta del autor: gris frío y gris cálido oscuros, blanco hueso y dos azules,
    metadatos en mono como timecodes. Mobile-first.
    ============================================================ */
 
@@ -11,15 +11,24 @@
    ============================================================ */
 :root {
   /* Color */
-  --bg: #0E0F11;
-  --surface: #17191C;
-  --surface-2: #1F2226;
-  --text: #EDEDEA;           /* 16.3:1 sobre --bg */
-  --muted: #9A9C9F;          /* 7.0:1 sobre --bg, 6.4:1 sobre --surface */
-  --line: rgba(237, 237, 234, 0.12);
-  --line-strong: rgba(237, 237, 234, 0.28);
-  --accent: #FF5A36;         /* "REC" — 6.2:1 sobre --bg */
-  --on-accent: #0E0F11;      /* texto sobre el acento: 6.2:1 */
+  /* Paleta base del autor */
+  --gris-frio: #1E1E24;
+  --gris-calido: #2E282A;
+  --blanco-hueso: #F0F6F6;
+  --azul-suave: #3F8EFC;
+  --azul-saturado: #2667FF;
+
+  --bg: var(--gris-frio);
+  --surface: var(--gris-calido);
+  --surface-2: #38323A;
+  --text: var(--blanco-hueso);   /* 15.2:1 sobre --bg, 13.2:1 sobre --surface */
+  --muted: #A3A9AD;              /* 7.0:1 sobre --bg, 6.1:1 sobre --surface */
+  --line: rgba(240, 246, 246, 0.12);
+  --line-strong: rgba(240, 246, 246, 0.28);
+  --accent: var(--azul-suave);   /* líneas, puntos, foco y texto grande: 5.1:1 sobre --bg */
+  --accent-text: var(--azul-suave); /* texto en azul: 5.1:1 sobre --bg */
+  --accent-fill: var(--azul-saturado); /* fondo de botones */
+  --on-accent: #FFFFFF;          /* texto sobre --accent-fill: 4.7:1 */
   --overlay: rgba(0, 0, 0, 0.35);
 
   /* Tipografía (escala ~1.4) */
@@ -60,15 +69,17 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    --bg: #F4F3EF;
+    --bg: var(--blanco-hueso);
     --surface: #FFFFFF;
-    --surface-2: #ECEBE6;
-    --text: #141516;          /* 16.5:1 */
-    --muted: #5C5F63;         /* 5.8:1 sobre --bg */
-    --line: rgba(20, 21, 22, 0.12);
-    --line-strong: rgba(20, 21, 22, 0.3);
-    --accent: #C8381A;        /* 4.7:1 sobre --bg */
-    --on-accent: #FFFFFF;     /* 5.2:1 */
+    --surface-2: #E3EBEB;
+    --text: var(--gris-frio);  /* 15.2:1 */
+    --muted: #565C66;          /* 6.2:1 sobre --bg */
+    --line: rgba(30, 30, 36, 0.12);
+    --line-strong: rgba(30, 30, 36, 0.3);
+    --accent: var(--azul-saturado); /* líneas, puntos y foco (≥ 3:1) */
+    --accent-text: #1F4FCC;    /* azul saturado oscurecido para texto: 6.3:1 sobre --bg */
+    --accent-fill: var(--azul-saturado);
+    --on-accent: #FFFFFF;      /* 4.7:1 */
     --overlay: rgba(0, 0, 0, 0.25);
   }
 }
@@ -162,7 +173,7 @@ main:focus { outline: none; }
   z-index: 100;
   padding: var(--space-3) var(--space-4);
   border-radius: var(--radius);
-  background: var(--accent);
+  background: var(--accent-fill);
   color: var(--on-accent);
   font-weight: 600;
   transform: translateY(-200%);
@@ -178,7 +189,7 @@ main:focus { outline: none; }
   color: var(--muted);
 }
 
-/* Punto "REC" */
+/* Punto de "grabando" (azul de la paleta) */
 .rec-dot {
   display: inline-block;
   width: 8px;
@@ -213,7 +224,7 @@ main:focus { outline: none; }
 .btn:hover { transform: translateY(-2px); }
 .btn:active { transform: translateY(0); }
 
-.btn--primary { background: var(--accent); color: var(--on-accent); }
+.btn--primary { background: var(--accent-fill); color: var(--on-accent); }
 
 .btn--ghost {
   border-color: var(--line-strong);
@@ -405,7 +416,7 @@ main:focus { outline: none; }
   font-size: clamp(var(--text-2xl), 7vw, var(--text-3xl));
 }
 
-.hero h1 .accent { color: var(--accent); }
+.hero h1 .accent { color: var(--accent-text); }
 
 .hero-lede {
   max-width: 54ch;
@@ -550,8 +561,8 @@ main:focus { outline: none; }
   gap: var(--space-2);
   padding: var(--space-1) var(--space-2);
   border-radius: 2px;
-  background: rgba(14, 15, 17, 0.85);
-  color: #EDEDEA;            /* fijo: siempre sobre fondo oscuro, 15:1 */
+  background: rgba(30, 30, 36, 0.88);
+  color: #F0F6F6;            /* fijo: siempre sobre fondo oscuro, ~14:1 */
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   letter-spacing: 0.04em;
@@ -559,7 +570,7 @@ main:focus { outline: none; }
 }
 .clip-tag--duration { right: var(--space-2); bottom: var(--space-3); }
 .clip-tag--result { left: var(--space-2); top: var(--space-2); }
-.clip-tag--result .rec-dot { background: #FF5A36; }
+.clip-tag--result .rec-dot { background: #3F8EFC; }
 
 .clip-meta {
   display: flex;
@@ -612,6 +623,9 @@ main:focus { outline: none; }
 
 /* Herramientas como "nombres de pista" */
 .track {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
   padding: var(--space-1) var(--space-2);
   border: 1px solid var(--line);
   border-left: 3px solid var(--accent);
@@ -632,14 +646,14 @@ main:focus { outline: none; }
 .about-photo {
   position: relative;
   width: min(100%, 320px);
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 655 / 1024;   /* la proporción exacta de public/about.jpg: se ve completa, sin recortes */
   overflow: hidden;
   border-radius: var(--radius);
   border: 1px solid var(--line);
   background: var(--surface);
 }
 
-.about-photo img { object-fit: cover; object-position: center 30%; }
+.about-photo img { object-fit: cover; object-position: center; }
 
 .about-text {
   display: flex;
@@ -747,7 +761,7 @@ main:focus { outline: none; }
   color: var(--text);
   transition: color var(--dur-fast) ease;
 }
-.footer-links a:hover { color: var(--accent); }
+.footer-links a:hover { color: var(--accent-text); }
 
 @media (min-width: 768px) {
   .site-footer { flex-direction: row; align-items: center; justify-content: space-between; }
@@ -1006,8 +1020,8 @@ main:focus { outline: none; }
   min-height: 44px;
   padding: var(--space-2) var(--space-4) var(--space-2) var(--space-3);
   border-radius: 999px;
-  background: #FF5A36;
-  color: #0E0F11;                 /* 6.2:1 */
+  background: #2667FF;
+  color: #FFFFFF;                 /* 4.7:1 */
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   font-weight: 600;
@@ -1093,3 +1107,89 @@ main:focus { outline: none; }
   justify-content: center;
 }
 .not-found h1 { font-size: clamp(var(--text-xl), 5vw, var(--text-2xl)); max-width: 20ch; }
+
+
+/* ============================================================
+   15. ÍCONOS DE HERRAMIENTAS
+   Grises en reposo; al pasar el cursor se resaltan (color de texto, borde azul, leve elevación).
+   ============================================================ */
+.tool {
+  color: var(--muted);
+  transition: color var(--dur-fast) ease,
+              border-color var(--dur-fast) ease,
+              transform var(--dur-fast) var(--ease-out);
+}
+
+.tool-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--muted);
+  transition: color var(--dur-fast) ease;
+}
+
+.tool-monogram {
+  display: inline-grid;
+  place-items: center;
+  border: 1.5px solid currentColor;
+  border-radius: 3px;
+  font-family: var(--font-display);
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.tool:hover {
+  color: var(--text);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.tool:hover .tool-icon { color: var(--accent); }
+
+/* ============================================================
+   16. VISTA PREVIA EN LAS TARJETAS (components/ClipPreview.js)
+   Cada fotograma se muestra --frame-dur y da paso al siguiente; el ciclo completo
+   dura lo mismo que la línea de reproducción, que recorre el borde una vez por ciclo.
+   ============================================================ */
+.clip { --frame-dur: 700ms; }
+
+.clip-preview {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+
+.clip:hover .clip-preview,
+.clip:focus-within .clip-preview { display: block; }
+
+.clip-preview img {
+  opacity: 0;
+  animation: preview-frame calc(var(--frame-dur) * var(--frames)) steps(1, end) infinite;
+}
+
+/* Visible solo durante su tramo (1/4 del ciclo con 4 fotogramas; los JSON tienen 4). */
+@keyframes preview-frame {
+  0% { opacity: 1; }
+  25% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* La línea de reproducción dura exactamente un ciclo y se repite con él */
+.clip:hover .clip-thumb::after,
+.clip:focus-within .clip-thumb::after {
+  animation: playhead calc(var(--frame-dur) * 4) linear infinite;
+}
+
+@keyframes playhead {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clip-preview { display: none !important; }
+  .clip:hover .clip-thumb::after,
+  .clip:focus-within .clip-thumb::after { animation: none; transform: scaleX(1); }
+}

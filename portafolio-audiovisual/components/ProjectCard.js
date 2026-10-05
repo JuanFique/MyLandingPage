@@ -1,29 +1,26 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import ClipPreview from '@/components/ClipPreview';
+import ToolTag from '@/components/ToolTag';
 
 // Tarjeta tipo "clip": miniatura con duración y resultado, metadatos en mono.
 // `featured` = la tarjeta grande del mosaico (título mayor y herramientas visibles).
 export default function ProjectCard({ project, featured = false }) {
   const detailUrl = `/proyectos/${project.slug}`;
+  const sizes = featured
+    ? '(min-width: 1180px) 760px, (min-width: 1024px) 64vw, 100vw'
+    : '(min-width: 1180px) 360px, (min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw';
 
   return (
     <article className={featured ? 'clip clip--featured' : 'clip'}>
       <div className="clip-thumb media-frame">
         {project.media.cover ? (
           // alt="" porque el título (justo debajo) ya nombra el proyecto.
-          <Image
-            src={project.media.cover}
-            alt=""
-            fill
-            sizes={
-              featured
-                ? '(min-width: 1180px) 760px, (min-width: 1024px) 64vw, 100vw'
-                : '(min-width: 1180px) 360px, (min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw'
-            }
-          />
+          <Image src={project.media.cover} alt="" fill sizes={sizes} />
         ) : (
           <div className="media-placeholder">IMG — {project.title}</div>
         )}
+        <ClipPreview frames={project.media.stills} sizes={sizes} />
         {project.highlight && (
           <span className="clip-tag clip-tag--result">
             <span className="rec-dot" aria-hidden="true" />
@@ -52,7 +49,7 @@ export default function ProjectCard({ project, featured = false }) {
       {featured && (
         <ul className="track-list" role="list" aria-label="Herramientas">
           {project.tools.map(tool => (
-            <li className="track" key={tool}>{tool}</li>
+            <ToolTag key={tool} name={tool} />
           ))}
         </ul>
       )}

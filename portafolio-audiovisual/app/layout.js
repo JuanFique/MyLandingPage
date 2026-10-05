@@ -16,8 +16,8 @@ const interTight = Inter_Tight({ subsets: ['latin'], weight: '700', variable: '-
 export const viewport = {
   colorScheme: 'dark light',
   themeColor: [
-    { media: '(prefers-color-scheme: dark)', color: '#0E0F11' },
-    { media: '(prefers-color-scheme: light)', color: '#F4F3EF' },
+    { media: '(prefers-color-scheme: dark)', color: '#1E1E24' },
+    { media: '(prefers-color-scheme: light)', color: '#F0F6F6' },
   ],
 };
 

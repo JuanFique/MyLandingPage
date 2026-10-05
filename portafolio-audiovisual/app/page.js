@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { preload } from 'react-dom';
 import HeroReel from '@/components/HeroReel';
 import ProjectCard from '@/components/ProjectCard';
+import ToolTag from '@/components/ToolTag';
 import CopyEmail from '@/components/CopyEmail';
 import Reveal from '@/components/Reveal';
 import VideoPlayer from '@/components/VideoPlayer';
@@ -132,7 +133,7 @@ export default function Home() {
                     <dd>
                       <ul className="track-list" role="list">
                         {skill.tools.map(tool => (
-                          <li className="track" key={tool}>{tool}</li>
+                          <ToolTag key={tool} name={tool} />
                         ))}
                       </ul>
                     </dd>

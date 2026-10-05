@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Gallery from '@/components/Gallery';
 import Reveal from '@/components/Reveal';
+import ToolTag from '@/components/ToolTag';
 import VideoPlayer from '@/components/VideoPlayer';
 import site from '@/content/site.json';
 import { getPosterUrl } from '@/lib/media';
@@ -143,7 +144,7 @@ export default async function ProjectPage({ params }) {
             <dd>
               <ul className="track-list" role="list">
                 {project.tools.map(tool => (
-                  <li className="track" key={tool}>{tool}</li>
+                  <ToolTag key={tool} name={tool} />
                 ))}
               </ul>
             </dd>

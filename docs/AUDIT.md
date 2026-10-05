@@ -444,3 +444,16 @@ Rutas: `/`, 3 proyectos representativos y la 404 · Anchos: 320, 768, 1280 px ·
 - [ ] **Registrar tu sitio en Google Search Console** y enviar el `sitemap.xml` para acelerar la indexación.
 - [ ] **Revisar `npm audit`:** una vulnerabilidad *high* en `braces` (solo desarrollo, vía `eslint-config-next`); no afecta al sitio publicado.
 - [ ] **Mantener los datos al día:** `content/site.json` (disponibilidad, estadísticas) y el campo `result` de cada proyecto si cambian.
+
+---
+
+## 13. Ajustes posteriores (retroalimentación del autor)
+
+- **Paleta del autor restaurada** dentro del sistema de tokens: gris frío `#1E1E24` (fondo), gris cálido `#2E282A` (superficies), blanco hueso `#F0F6F6` (texto), azul suave `#3F8EFC` (acento en oscuro) y azul saturado `#2667FF` (botones, con texto blanco 4.7:1). En tema claro el texto en azul usa `#1F4FCC` (azul saturado oscurecido, 6.3:1), porque `#2667FF` sobre hueso da 4.3:1. Favicon, íconos e imagen para compartir regenerados con la paleta.
+- **Foto de "Sobre mí"**: el marco ahora tiene la proporción exacta de la foto (655×1024), así que se ve completa (sin cortar los brazos ni dejar aire arriba).
+- **Íconos de herramientas** con resaltado al pasar el cursor: logos de DaVinci Resolve, Blender y Figma (Simple Icons, CC0) y siglas Pr/Ae/Au/Ps/Ai para Adobe (no se usa el logotipo de Adobe, cuyo uso está restringido). Firefly y Adobe Podcast se muestran sin ícono.
+- **Notas retiradas** de tarjetas, casos y franja de datos; se mantiene el primer lugar de Economía y Finanzas (Fallas de mercado).
+- **Vista previa real en tarjetas**: al pasar el cursor (o enfocar con teclado) se suceden los 4 fotogramas del proyecto, sincronizados con la línea de reproducción. Las imágenes se cargan solo al primer hover; desactivado con "reducir movimiento" y en pantallas táctiles.
+- **CV**: la línea bajo el nombre dice "INGENIERO EN MULTIMEDIA – EDICIÓN DE VIDEO Y MOTION GRAPHICS" (decisión del autor). El PDF ahora se genera con las tipografías reales del documento (DM Serif Display, Merriweather, Inter).
+
+Verificación: lint y build OK; 64/64 pruebas e2e (axe sin violaciones en 8 rutas × 3 anchos × 2 temas); QA responsive sin hallazgos; Lighthouse móvil home 95–98 y proyecto 95–98 / 100 / 100 / 100, CLS 0.
