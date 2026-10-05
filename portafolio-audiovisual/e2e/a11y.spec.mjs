@@ -121,3 +121,86 @@ test('los proyectos aparecen en el orden definido', async ({ page }) => {
   expect(titles[0]).toContain('Introducción a la Cátedra');
   expect(titles[1]).toContain('Bolsa ninja');
 });
+
+// ---------- SEO y metadatos ----------
+
+const SITE = 'https://juandavidfiquevelasco.vercel.app';
+
+test('home: title, description, canonical, Open Graph y Twitter con la URL de producción', async ({ page }) => {
+  await page.goto('/');
+  await expect(page).toHaveTitle(/Juan David Fique Velasco — Editor de video/);
+  const meta = sel => page.locator(sel).getAttribute('content');
+  expect(await meta('meta[name="description"]')).toContain('Bogotá');
+  expect(await page.locator('link[rel="canonical"]').getAttribute('href')).toBe(SITE);
+  expect(await meta('meta[property="og:image"]')).toContain(`${SITE}/opengraph-image.jpg`);
+  expect(await meta('meta[name="twitter:card"]')).toBe('summary_large_image');
+  expect(await meta('meta[name="twitter:image"]')).toContain(SITE);
+  await expect(page.locator('html')).toHaveAttribute('lang', 'es');
+});
+
+test('proyectos: título propio, canonical y Twitter card propios (no los del home)', async ({ page }) => {
+  await page.goto('/proyectos/bolsa-ninja');
+  await expect(page).toHaveTitle('Bolsa ninja — Juan David Fique Velasco');
+  expect(await page.locator('link[rel="canonical"]').getAttribute('href')).toBe(`${SITE}/proyectos/bolsa-ninja`);
+  expect(await page.locator('meta[name="twitter:title"]').getAttribute('content')).toBe('Bolsa ninja');
+  expect(await page.locator('meta[property="og:image"]').first().getAttribute('content')).toContain('bolsa-ninja');
+});
+
+test('datos estructurados: Person en todas las páginas y CreativeWork en proyectos, JSON válido', async ({ page }) => {
+  await page.goto('/proyectos/ryu-gamedev');
+  const blocks = await page.locator('script[type="application/ld+json"]').allTextContents();
+  const data = blocks.map(b => JSON.parse(b));
+  const person = data.find(d => d['@type'] === 'Person');
+  expect(person.name).toBe('Juan David Fique Velasco');
+  expect(person.sameAs).toEqual(expect.arrayContaining([expect.stringContaining('linkedin.com')]));
+  const work = data.find(d => d['@type'] === 'CreativeWork');
+  expect(work.url).toBe(`${SITE}/proyectos/ryu-gamedev`);
+  expect(work.dateCreated).toBe('2025');
+});
+
+test('robots, sitemap y manifest responden y son coherentes', async ({ request }) => {
+  const robots = await request.get('/robots.txt');
+  expect(await robots.text()).toContain(`Sitemap: ${SITE}/sitemap.xml`);
+
+  const sitemap = await (await request.get('/sitemap.xml')).text();
+  expect(sitemap.match(/<loc>/g)).toHaveLength(7); // home + 6 proyectos
+  expect(sitemap).toContain('<lastmod>');
+  expect(sitemap).toContain(`${SITE}/proyectos/introduccion-catedra`);
+
+  const manifest = await (await request.get('/manifest.webmanifest')).json();
+  expect(manifest.lang).toBe('es');
+  for (const icon of manifest.icons) {
+    expect((await request.get(icon.src)).status()).toBe(200);
+  }
+  expect((await request.get('/favicon.ico')).status()).toBe(200);
+  expect((await request.get('/apple-icon.png')).status()).toBe(200);
+});
+
+test('enlaces internos del home y de un proyecto responden 200', async ({ page, request }) => {
+  for (const route of ['/', '/proyectos/hitos-caldas']) {
+    await page.goto(route);
+    const hrefs = await page.locator('a[href^="/"]').evaluateAll(links => [...new Set(links.map(a => a.getAttribute('href')))]);
+    for (const href of hrefs) {
+      const path = href.split('#')[0] || '/';
+      const response = await request.get(path);
+      expect(response.status(), `${route} → ${href}`).toBe(200);
+    }
+  }
+});
+
+test('enlaces externos abren en pestaña nueva con noopener noreferrer', async ({ page }) => {
+  await page.goto('/');
+  const external = await page.locator('a[target="_blank"]').evaluateAll(links => links.map(a => [a.href, a.rel]));
+  expect(external.length).toBeGreaterThan(0);
+  for (const [href, rel] of external) {
+    expect(rel, href).toContain('noopener');
+    expect(rel, href).toContain('noreferrer');
+  }
+});
+
+test('404: página propia con estado 404 y salida clara', async ({ page }) => {
+  const response = await page.goto('/esta-pagina-no-existe');
+  expect(response.status()).toBe(404);
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('no existe');
+  await expect(page.getByRole('link', { name: 'Ver proyectos' })).toBeVisible();
+});

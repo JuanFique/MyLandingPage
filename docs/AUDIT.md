@@ -344,3 +344,35 @@ El antes/después completo, campo por campo, está en [`docs/COPY.md`](./COPY.md
 Hallazgo: el video de "Hitos de Francisco José de Caldas" tenía la errata **"MIEMRBO DE LA EXPEDICIÓN BOTÁNICA"**. *Resuelto:* el autor publicó una versión corregida; el sitio enlaza el nuevo video y usa el fotograma corregido. También se actualizó el link del reel (versión sin el error) y se reescribió la frase del hero.
 
 Verificación: lint y build OK, 51/51 pruebas e2e (axe sin violaciones en ambos temas).
+
+---
+
+## 11. Registro de la Fase 5 (SEO, metadatos y detalles finales)
+
+| Hallazgo | Resolución |
+|---|---|
+| S1 Twitter card de proyectos heredaba el home | Cada proyecto define su propio `twitter:` y `og:` (título, descripción, portada) |
+| S2 Sin datos estructurados | JSON-LD `Person` en todo el sitio y `CreativeWork` por proyecto (solo datos ya públicos) |
+| S3 URL dependía de Vercel | `url` fijada en `content/site.json` (`https://juandavidfiquevelasco.vercel.app`) |
+| S4 Sin manifest, apple-touch-icon, favicon propio | `manifest.webmanifest`, `apple-icon.png`, `icon.svg`, `favicon.ico` (16/32/48) y 192/512 px con la identidad "JF + REC"; el favicon anterior era el triángulo de la plantilla |
+| S5 Sin canonical | `alternates.canonical` en home y cada proyecto |
+| S6 Sitemap sin `lastModified` | Agregado (fecha de despliegue) |
+| S7 Descripción genérica | Descripción nueva con ciudad y objetivo (prácticas, edición de video) |
+| Imagen para compartir | Regenerada con la identidad actual (1200×630, 74 KB) |
+| Títulos | `title.template` → "Proyecto — Juan David Fique Velasco"; home: "… — Editor de video y motion graphics" |
+| X1 CV | PDF de 1 página, etiquetado (accesible), con título/autor/idioma, sin referencias de terceros; enlazado en header, hero, contacto, footer y páginas de proyecto |
+| K2 README | Reescrito (el anterior era el de create-next-app) |
+| K7 Node | `.nvmrc` (22) y `engines` (≥ 20.9) |
+| 404 | Ya existía; verificada por prueba (estado 404, h1 y salida clara) |
+| Enlaces externos | Todos con `target="_blank"` llevan `rel="noopener noreferrer"` (prueba) |
+| Consola | Sin errores en home ni en páginas de proyecto (prueba) |
+
+**Pruebas nuevas (8):** metadatos y canonical, Twitter por proyecto, JSON-LD válido, robots/sitemap/manifest/íconos, enlaces internos 200, `rel` externo, 404. Total: 59 pruebas e2e.
+
+**Lighthouse móvil:** home 97–99 / 100 / 100 / 100; proyecto 97 / 100 / 100 / 100; CLS 0.
+
+**Decisiones y pendientes**
+- *Analítica:* no se añadió. Si la quieres, lo más respetuoso es Vercel Web Analytics (sin cookies); requiere activar el servicio y una dependencia (`@vercel/analytics`), por lo que queda a tu decisión.
+- *Repos enlazados:* el sitio no enlaza ningún repositorio, así que no hay README ajeno que revisar.
+- *Enlaces de YouTube/LinkedIn:* no verificables desde el entorno de desarrollo (red restringida); confirmar a mano en producción.
+- *Datos personales públicos:* el CV incluye tu teléfono y correo (intencional para reclutadores); el sitio muestra además tu WhatsApp. Las referencias de terceros se retiraron.

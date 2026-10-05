@@ -7,6 +7,7 @@ import VideoPlayer from '@/components/VideoPlayer';
 import site from '@/content/site.json';
 import { getPosterUrl } from '@/lib/media';
 import { getAllProjects, getNextProject, getProjectBySlug } from '@/lib/projects';
+import { projectJsonLd, toJsonLd } from '@/lib/structured-data';
 
 const NEW_TAB = <span className="sr-only"> (se abre en una pestaña nueva)</span>;
 
@@ -76,22 +77,22 @@ export async function generateMetadata({ params }) {
 
   if (!project) return {};
 
-  const title = `${project.title} — Juan David Fique Velasco`;
+  // El título lleva " — Juan David Fique Velasco" automáticamente (ver title.template en layout.js).
   const cover = project.media.cover;
-
-  return {
-    title,
+  const social = {
+    title: project.title,
     description: project.summary,
     // Al compartir ESTE proyecto, la vista previa usa su propia portada (versión optimizada
-    // de ~1200 px, liviana). Sin portada no se define nada aquí y vale la imagen general.
-    ...(cover && {
-      openGraph: {
-        title,
-        description: project.summary,
-        type: 'website',
-        images: [{ url: getPosterUrl(cover, 600), width: 1200, height: 675 }],
-      },
-    }),
+    // de ~1200 px, liviana). Sin portada vale la imagen general.
+    ...(cover && { images: [{ url: getPosterUrl(cover, 600), width: 1200, height: 675, alt: project.title }] }),
+  };
+
+  return {
+    title: project.title,
+    description: project.summary,
+    alternates: { canonical: `/proyectos/${slug}` },
+    openGraph: { ...social, type: 'website', url: `/proyectos/${slug}`, siteName: site.name, locale: 'es_CO' },
+    twitter: { card: 'summary_large_image', ...social },
   };
 }
 
@@ -110,6 +111,7 @@ export default async function ProjectPage({ params }) {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(projectJsonLd(project)) }} />
       <section className="case-header container" aria-labelledby="case-title">
         <Link href="/#proyectos" className="text-link back-link">← Todos los proyectos</Link>
         <p className="clip-meta mono">
