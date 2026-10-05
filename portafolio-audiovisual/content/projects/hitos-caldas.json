@@ -1,0 +1,17 @@
+{
+  "title": "Hitos de Francisco José de Caldas",
+  "category": "Motion design educativo",
+  "year": 2026,
+  "context": "Cliente: Instituto de Estudios e Investigaciones Educativas (IEIE) — Universidad Distrital Francisco José de Caldas",
+  "description": "Video de motion design que narra hitos biográficos de Caldas usando capas 3D, efectos de profundidad y nodos de composición, sin animación de personajes.",
+  "summary": "Video de animación estática que narra hitos biográficos de Francisco José de Caldas mediante imágenes en movimiento, efectos de profundidad y motion design. Demuestra iteración sobre un formato previo, usando capas 3D y nodos de composición para crear dinamismo narrativo sin animación de personajes.",
+  "role": "Me encargué de la organización y estructura de la narración, diseño de presentación visual, motion design en capas 3D, composición de efectos en nodos de DaVinci Resolve, diseño de títulos y palabras clave, efectos de sonido, sincronización narrativa, iteración y refinamiento de movimientos.",
+  "problem": "Necesidad de reformatear un video anterior sobre Caldas (información general) en una versión con enfoque narrativo en hitos biográficos específicos, con recursos limitados: solo el guión y la narración.",
+  "solution": "Principios de motion design aplicados a imágenes estáticas, donde cada imagen recibió tratamiento de profundidad mediante capas 3D, sombras y movimiento de cámara simulado. Se priorizó el timing de movimientos y efectos sincronizados con la narración oral y los énfasis históricos. Se usó el sistema de nodos de DaVinci Resolve para crear efectos complejos y se ajustaron las curvas de movimiento para que cada asset contribuya al pacing general sin competir con la narrativa.",
+  "tools": [
+    "DaVinci Resolve",
+    "Adobe Podcast (Enhance Speech)"
+  ],
+  "featured": true,
+  "youtube": "https://youtu.be/xuVENszvkIc"
+}

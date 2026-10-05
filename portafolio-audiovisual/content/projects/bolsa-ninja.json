@@ -1,0 +1,21 @@
+{
+  "title": "Bolsa ninja",
+  "category": "Animación",
+  "year": 2025,
+  "context": "Proyecto académico — Universidad Militar Nueva Granada",
+  "description": "Secuencia de animación 3D de 30 segundos: una bolsa ejecuta saltos y volteretas, con control de rig, sincronización música-movimiento y storytelling visual mediante cámara.",
+  "summary": "Secuencia de animación 3D de 30 segundos donde una bolsa ejecuta una serie de saltos y volteretas. El proyecto demuestra control técnico de rig, sincronización música-movimiento y storytelling visual mediante cámara.",
+  "role": "Me encargué del concepto visual y storytelling, animación frame-by-frame con rig de Blender, movimiento de cámara, sincronización música-ritmo y posproducción.",
+  "problem": "Primer proyecto de animación de largo formato: animar un personaje de 30 segundos aplicando principios de animación, con materiales, matte painting, movimiento de cámara, y sin errores de superposición o movimiento errático. Como requisito adicional se debía desarrollar un storytelling propio que justificara la situación del personaje.",
+  "solution": "Enfoque frame-by-frame combinado con análisis de referencias, priorizando las volteretas como el elemento que comunica energía y carácter. Sincronización rigurosa de la música con el ritmo de movimiento y composición visual reforzada con barras negras que enfatizan los momentos de acción.",
+  "tools": [
+    "Blender",
+    "Adobe Premiere Pro"
+  ],
+  "credits": [
+    "Música: \"Rising\" — Yoshida Brothers",
+    "Fondo vectorizado tomado del juego Cat Search in Feudal Japan"
+  ],
+  "featured": true,
+  "youtube": "https://youtu.be/q3rx8FKfdWE"
+}

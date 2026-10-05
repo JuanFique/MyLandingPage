@@ -1,0 +1,43 @@
+{
+  "title": "NO necesitas programar BIEN para hacer BUENOS JUEGOS",
+  "category": "Edición y postproducción narrativa",
+  "year": 2025,
+  "context": "Cliente: @ryugamedev",
+  "description": "Edición de video de 15 minutos que sincroniza narración sobre videojuegos con material heterogéneo, corrección de audio y microcomedia visual.",
+  "summary": "Edición de video de 15 minutos que sincroniza narración sobre videojuegos con material heterogéneo de múltiples títulos. Combina búsqueda estratégica de material, corrección de audio, sincronización narrativa y microcomedia visual para mantener coherencia narrativa a lo largo de la pieza.",
+  "role": "Corrección y revisión de guión, búsqueda y selección de material, edición de video, sincronización narrativa, diseño de títulos y gráficos textuales, selección y sincronización de música, corrección de audio, normalización de LUFS, sincronización de efectos de sonido y posproducción general.",
+  "problem": "El cliente necesitaba edición profesional para un video de 15 minutos donde discute temáticas de videojuegos. El guión ya estaba escrito, con puntos específicos donde debía haber material visual, pero el material existía en múltiples juegos no relacionados entre sí, y había que hacerlos parecer sincronizados narrativamente. El objetivo era mantener la voz y visión del creador mientras se elevaba la producción visual y el audio.",
+  "solution": "El trabajo se organizó en cinco fases:",
+  "steps": [
+    {
+      "title": "Refinamiento de guión",
+      "text": "revisión de estilo, lenguaje, puntuación y fluidez narrativa, alineando recomendaciones y chistes con el tono del creador."
+    },
+    {
+      "title": "Búsqueda de material",
+      "text": "identificación de clips de videojuegos que respondieran no solo a la temática explícita, sino también a oportunidades de humor visual (\"gags de comedia\")."
+    },
+    {
+      "title": "Sincronización",
+      "text": "organización del material para que múltiples juegos parecieran una narrativa cohesionada; timing de cortes sincronizado con los puntos de énfasis narrativo."
+    },
+    {
+      "title": "Capas visuales",
+      "text": "integración de títulos con microcomedia textual que reforzaban los chistes hablados sin competir con ellos."
+    },
+    {
+      "title": "Audio",
+      "text": "corrección y limpieza de voz, aplicación de LUFS estándar para YouTube y musicalización coherente."
+    }
+  ],
+  "tools": [
+    "Adobe Premiere Pro",
+    "Adobe After Effects",
+    "Adobe Podcast (Enhance Speech)"
+  ],
+  "credits": [
+    "Guión y concepto: @ryugamedev"
+  ],
+  "featured": true,
+  "youtube": "https://youtu.be/FC05pWLkNrU?si=yDgxr4eJIyfO4oNW"
+}
