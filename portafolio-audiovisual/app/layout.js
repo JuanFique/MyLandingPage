@@ -5,18 +5,7 @@ import site from '@/content/site.json';
 import { getSiteUrl } from '@/lib/site-url';
 import { personJsonLd, toJsonLd } from '@/lib/structured-data';
 import './globals.css';
-import { GoogleAnalytics } from '@next/third-parties/google'
-
-export default function RootLayout({ children }) {
-  return (
-    <html>
-      <body>
-        {children}
-        <GoogleAnalytics gaId="G-1BQFME7R2S" />
-      </body>
-    </html>
-  )
-}
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 // next/font descarga la fuente al compilar y la sirve desde tu propio sitio.
 // Solo se carga Inter Tight en peso 700 (el único que usan títulos y logo): un archivo
@@ -75,6 +64,7 @@ export default function RootLayout({ children }) {
         <Header />
         <main id="contenido" tabIndex={-1}>{children}</main>
         <Footer />
+        <GoogleAnalytics gaId="G-1BQFME7R2S" />
       </body>
     </html>
   );
